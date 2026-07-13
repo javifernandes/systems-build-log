@@ -111,6 +111,10 @@
         "atlas"
       ],
       "media": [
+        "ai-build-log-lab/media/screenshots/bookops-reading.gif",
+        "ai-build-log-lab/media/screenshots/bookops-conversations.gif",
+        "ai-build-log-lab/media/screenshots/bookops-slide-mode.gif",
+        "ai-build-log-lab/media/screenshots/bookops-latex-playground.gif",
         "ai-build-log-lab/media/screenshots/bookops-landing-light.png",
         "ai-build-log-lab/media/screenshots/bookops-landing-dark.png",
         "ai-build-log-lab/media/screenshots/bookops-emotia-reader-light.png",
@@ -284,18 +288,14 @@
       ],
       "pitch": "Tablero Kanban GH Pages para organizar lecturas del segundo parcial: progreso, apuntes de fotocopiadora, guias de catedra, bloques repetidos y casos de auditoria textual.",
       "media": [
+        "ai-build-log-lab/media/screenshots/freud-reading-board.gif",
         "ai-build-log-lab/media/screenshots/psicoanalisis-freud-reading-board-second-partial-dark.png",
         "ai-build-log-lab/media/screenshots/freud-reading-board-program-guides-dark.png"
-      ],
-      "mediaNeeded": [
-        "tarjeta de lectura",
-        "warning Amorrortu",
-        "modo claro si aparece"
       ]
     },
     {
       "id": "ontahi-book-of-style",
-      "title": "Ontahi Book of Style",
+      "title": "Ontahí: Book of Styles",
       "kind": "book",
       "localPath": "/Users/jfernandes/dev/personal/bookops/ontahi-book-of-style",
       "repo": "git@github.com:javifernandes/ontahi-book-of-style.git",
@@ -311,6 +311,7 @@
       "approxTextLines": 1453,
       "pitch": "Libro BookOps de especificacion visual y UX de Ontahi que tambien fuerza al propio BookOps a permitir experiencias de lectura customizadas.",
       "media": [
+        "ai-build-log-lab/media/screenshots/ontahi-book-of-styles.gif",
         "ai-build-log-lab/media/screenshots/ontahi-book-of-style-light.png",
         "ai-build-log-lab/media/screenshots/ontahi-book-of-style-dark.png"
       ],
@@ -329,7 +330,7 @@
     },
     {
       "id": "ontahi-library-living-systems",
-      "title": "Ontahi Library / Living Systems",
+      "title": "Ontahí: Docs & Essays",
       "kind": "essay",
       "localPath": "/Users/jfernandes/dev/personal/bookops/ontahi-library",
       "repo": "git@github.com:javifernandes/ontahi-library.git",
@@ -342,13 +343,11 @@
       ],
       "trackedFiles": 14,
       "approxTextLines": 1318,
-      "pitch": "Ensayo publicado en BookOps sobre sistemas y arquitectura, con vinculos organicos, biologicos, neurales, anatomicos y psicoanaliticos.",
+      "pitch": "Biblioteca de documentacion y ensayos de Ontahi, publicada en BookOps. La primera pieza explora sistemas y arquitectura con vinculos organicos, biologicos, neurales, anatomicos y psicoanaliticos.",
       "media": [
+        "ai-build-log-lab/media/screenshots/ontahi-system-architecture.gif",
         "ai-build-log-lab/media/screenshots/ontahi-library-system-architecture-light.png",
         "ai-build-log-lab/media/screenshots/ontahi-library-system-architecture-dark.png"
-      ],
-      "mediaNeeded": [
-        "marginalia/figuras internas"
       ],
       "readingSignals": {
         "parts": 4,

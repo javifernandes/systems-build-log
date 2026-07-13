@@ -201,7 +201,7 @@ const englishPitches: Record<string, string> = {
   "ontahi-book-of-style":
     "BookOps book that specifies Ontahi visual language and UX while pushing BookOps itself to support custom reading experiences.",
   "ontahi-library-living-systems":
-    "BookOps essay on systems and architecture through organic, biological, neural, anatomical, and psychoanalytic lenses.",
+    "Ontahi documentation and essays library, published in BookOps. Its first piece explores systems and architecture through organic, biological, neural, anatomical, and psychoanalytic lenses.",
   "progbook":
     "Book on programming fundamentals that sparked the need to ideate BookOps. Published as the first BookOps book, it opens prototypes for learning books with dynamic exercises generated and corrected by people or specialized LLMs, plus examples tailored to the reader's preferences or domains.",
   "psicoanalisis-freud-laznik":

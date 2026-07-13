@@ -1,6 +1,15 @@
 {
-  "generatedAt": "2026-07-12",
+  "generatedAt": "2026-07-13",
   "screenshots": [
+    {
+      "id": "ontahi-system-architecture",
+      "path": "ai-build-log-lab/media/screenshots/ontahi-system-architecture.gif",
+      "projectId": "ontahi-library-living-systems",
+      "title": "Ontahi system architecture reading flow",
+      "mode": "motion",
+      "kind": "animated-demo",
+      "notes": "Animated BookOps reading flow for the Ontahi systems and architecture essay."
+    },
     {
       "id": "ontahi-library-system-architecture-light",
       "path": "ai-build-log-lab/media/screenshots/ontahi-library-system-architecture-light.png",
@@ -36,6 +45,42 @@
       "mode": "dark",
       "kind": "study-book",
       "notes": "Dark-mode BookOps reader showing Mermaid-like conceptual diagrams and deep navigation."
+    },
+    {
+      "id": "bookops-reading",
+      "path": "ai-build-log-lab/media/screenshots/bookops-reading.gif",
+      "projectId": "bookops",
+      "title": "BookOps reading flow",
+      "mode": "motion",
+      "kind": "animated-demo",
+      "notes": "Animated reading flow showing BookOps as a live reader rather than a static publishing surface."
+    },
+    {
+      "id": "bookops-conversations",
+      "path": "ai-build-log-lab/media/screenshots/bookops-conversations.gif",
+      "projectId": "bookops",
+      "title": "BookOps conversations flow",
+      "mode": "motion",
+      "kind": "animated-demo",
+      "notes": "Animated walkthrough of inline conversations, annotations and reactions inside the reading experience."
+    },
+    {
+      "id": "bookops-slide-mode",
+      "path": "ai-build-log-lab/media/screenshots/bookops-slide-mode.gif",
+      "projectId": "bookops",
+      "title": "BookOps slide mode flow",
+      "mode": "motion",
+      "kind": "animated-demo",
+      "notes": "Animated slide mode showing a book section transformed into a navigable presentation."
+    },
+    {
+      "id": "bookops-latex-playground",
+      "path": "ai-build-log-lab/media/screenshots/bookops-latex-playground.gif",
+      "projectId": "bookops",
+      "title": "BookOps LaTeX Playground",
+      "mode": "motion",
+      "kind": "component-playground",
+      "notes": "Storybook playground showing reusable BookOps components and a side-by-side LaTeX to BookOps AST to BookOps reader pipeline."
     },
     {
       "id": "bookops-landing-dark",
@@ -245,6 +290,15 @@
       "notes": "Light-mode Wollok snippet showing object, var, method and return highlighting."
     },
     {
+      "id": "freud-reading-board",
+      "path": "ai-build-log-lab/media/screenshots/freud-reading-board.gif",
+      "projectId": "freud-reading-board-2do-parcial",
+      "title": "Freud Reading Board flow",
+      "mode": "motion",
+      "kind": "animated-demo",
+      "notes": "Animated walkthrough of the reading board for Freud's second partial, showing progress tracking, modules, guide material and reading cards."
+    },
+    {
       "id": "psicoanalisis-freud-reading-board-second-partial-dark",
       "path": "ai-build-log-lab/media/screenshots/psicoanalisis-freud-reading-board-second-partial-dark.png",
       "projectId": "freud-reading-board-2do-parcial",
@@ -317,10 +371,19 @@
       "notes": "Saved practice history stored locally, with timestamps, modes, scores and export actions."
     },
     {
+      "id": "ontahi-book-of-styles",
+      "path": "ai-build-log-lab/media/screenshots/ontahi-book-of-styles.gif",
+      "projectId": "ontahi-book-of-style",
+      "title": "Ontahí: Book of Styles reading flow",
+      "mode": "motion",
+      "kind": "animated-demo",
+      "notes": "Animated BookOps reading flow for the Ontahi style specification, showing the custom botanical experience in motion."
+    },
+    {
       "id": "ontahi-book-of-style-dark",
       "path": "ai-build-log-lab/media/screenshots/ontahi-book-of-style-dark.png",
       "projectId": "ontahi-book-of-style",
-      "title": "Ontahi Book of Style - dark",
+      "title": "Ontahí: Book of Styles - dark",
       "mode": "dark",
       "kind": "style-spec",
       "notes": "Dark-mode BookOps reader page for The Ontahi Language Kit, showing the Ceibo symbol specimen and botanical design language."
@@ -329,7 +392,7 @@
       "id": "ontahi-book-of-style-light",
       "path": "ai-build-log-lab/media/screenshots/ontahi-book-of-style-light.png",
       "projectId": "ontahi-book-of-style",
-      "title": "Ontahi Book of Style - light",
+      "title": "Ontahí: Book of Styles - light",
       "mode": "light",
       "kind": "style-spec",
       "notes": "Light-mode Ontahi style specification rendered with its own botanical visual system."
