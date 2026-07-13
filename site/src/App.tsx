@@ -396,6 +396,18 @@ const screenshotByProject = (screenshots: Screenshot[]) => {
   return map;
 };
 
+const screenshotsForProject = (
+  project: Project,
+  screenshotsMap: Map<string, Screenshot[]>,
+) => {
+  const items = screenshotsMap.get(project.id) ?? [];
+  const order = new Map((project.media ?? []).map((path, index) => [path, index]));
+
+  return [...items].sort(
+    (a, b) => (order.get(a.path) ?? 9999) - (order.get(b.path) ?? 9999),
+  );
+};
+
 function App() {
   const [labData, setLabData] = useState<LabData | null>(null);
   const [error, setError] = useState<string | null>(null);
@@ -433,15 +445,7 @@ function App() {
 
   const selectedScreenshots = useMemo(() => {
     if (!selectedProject) return [];
-
-    const items = screenshotsMap.get(selectedProject.id) ?? [];
-    const order = new Map(
-      (selectedProject.media ?? []).map((path, index) => [path, index]),
-    );
-
-    return [...items].sort(
-      (a, b) => (order.get(a.path) ?? 9999) - (order.get(b.path) ?? 9999),
-    );
+    return screenshotsForProject(selectedProject, screenshotsMap);
   }, [screenshotsMap, selectedProject]);
 
   const selectedShot = selectedScreenshots[activeShotIndex] ?? selectedScreenshots[0];
@@ -450,7 +454,6 @@ function App() {
 
   useEffect(() => {
     setActiveShotIndex(0);
-    setIsZoomOpen(false);
   }, [selectedId]);
 
   useEffect(() => {
@@ -490,13 +493,18 @@ function App() {
   };
 
   const scrollToProjects = () => {
-    document.getElementById("projects")?.scrollIntoView({
+    const targetId = window.matchMedia("(max-width: 760px)").matches
+      ? "mobile-project-feed"
+      : "projects";
+
+    document.getElementById(targetId)?.scrollIntoView({
       behavior: "smooth",
       block: "start",
     });
   };
 
   const selectProject = (projectId: string, shouldScroll = false) => {
+    setIsZoomOpen(false);
     setSelectedId(projectId);
     if (shouldScroll) window.requestAnimationFrame(scrollToProjects);
   };
@@ -674,6 +682,85 @@ function App() {
           <Metric label={copy.totals.plans} value={totals.plans} locale={locale} />
           <Metric label={copy.totals.atlas} value={totals.atlasItems} locale={locale} />
         </dl>
+      </section>
+
+      <section className="mobile-project-feed" id="mobile-project-feed" aria-label={copy.map}>
+        {projects.map((project) => {
+          const date = projectDate(project);
+          const projectScreenshots = screenshotsForProject(project, screenshotsMap);
+          const firstShot = projectScreenshots[0];
+          const firstShotSrc = firstShot ? publicAssetPath(firstShot.path) : null;
+          const projectRepo = repoHref(project.repo);
+
+          const openProjectZoom = () => {
+            setSelectedId(project.id);
+            setActiveShotIndex(0);
+            setIsZoomOpen(true);
+          };
+
+          return (
+            <article className="mobile-project-card" key={project.id}>
+              <p className="mobile-project-month">{monthLabel(date, locale)}</p>
+              <h2>{project.title}</h2>
+              <p className="case-kind">{projectKindLabel(project, locale)}</p>
+              <p className="mobile-project-pitch">
+                {renderRichText(projectPitch(project, locale), project)}
+              </p>
+
+              <div className="mobile-project-actions">
+                {project.publicUrl ? (
+                  <a
+                    className="icon-link"
+                    href={project.publicUrl}
+                    target="_blank"
+                    rel="noreferrer"
+                    aria-label={copy.openSite}
+                  >
+                    <ExternalLinkIcon />
+                    <span className="tooltip">{copy.openSite}</span>
+                  </a>
+                ) : null}
+                {project.resources?.map((resource) => (
+                  <a
+                    className="icon-link"
+                    href={resource.href}
+                    key={resource.href}
+                    target="_blank"
+                    rel="noreferrer"
+                    aria-label={resource.label}
+                  >
+                    {resource.kind === "pdf" ? <PdfIcon /> : <ExternalLinkIcon />}
+                    <span className="tooltip">{resource.label}</span>
+                  </a>
+                ))}
+                {projectRepo ? (
+                  <a
+                    className="icon-link"
+                    href={projectRepo}
+                    target="_blank"
+                    rel="noreferrer"
+                    aria-label={copy.repository}
+                  >
+                    <GithubIcon />
+                    <span className="tooltip">{copy.repository}</span>
+                  </a>
+                ) : null}
+              </div>
+
+              {firstShot && firstShotSrc ? (
+                <figure className="mobile-project-shot">
+                  <button type="button" onClick={openProjectZoom} aria-label={copy.zoom}>
+                    <img src={firstShotSrc} alt={firstShot.title} loading="lazy" />
+                    <span className="zoom-affordance">
+                      <MagnifyIcon />
+                    </span>
+                  </button>
+                  <figcaption>{firstShot.notes}</figcaption>
+                </figure>
+              ) : null}
+            </article>
+          );
+        })}
       </section>
 
       <section className="workbench-flow" id="projects" aria-label={copy.map}>
