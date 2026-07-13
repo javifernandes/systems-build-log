@@ -1526,21 +1526,35 @@ h3 {
 
 @media (max-width: 960px) and (orientation: landscape) {
   .zoom-overlay {
-    padding: 8px 54px;
+    padding: 0;
   }
 
   .zoom-body {
     width: 100vw;
     height: 100dvh;
+    align-items: start;
+    justify-items: center;
+    overflow: auto;
+    padding: 6px;
   }
 
   .zoom-figure {
-    gap: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: min-content;
+    min-width: 100%;
+    min-height: 100%;
+    height: auto;
+    gap: 0;
   }
 
   .zoom-figure img {
-    max-width: calc(100vw - 128px);
-    max-height: calc(100dvh - 34px);
+    width: calc(100vw - 12px);
+    max-width: none;
+    max-height: none;
+    height: auto;
+    border-radius: 8px;
   }
 
   .zoom-figure figcaption {
@@ -1550,13 +1564,14 @@ h3 {
   .zoom-close {
     top: 8px;
     right: 8px;
+    z-index: 4;
   }
 
   .zoom-nav.previous {
-    left: -44px;
+    left: 10px;
   }
 
   .zoom-nav.next {
-    right: -44px;
+    right: 10px;
   }
 }
