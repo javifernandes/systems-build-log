@@ -1,0 +1,329 @@
+{
+  "generatedAt": "2026-07-12",
+  "screenshots": [
+    {
+      "id": "ontahi-library-system-architecture-light",
+      "path": "ai-build-log-lab/media/screenshots/ontahi-library-system-architecture-light.png",
+      "projectId": "ontahi-library-living-systems",
+      "title": "Ontahi Library / System Architecture - light",
+      "mode": "light",
+      "kind": "book-reader",
+      "notes": "Living Systems book in BookOps with botanical/organic visual language."
+    },
+    {
+      "id": "ontahi-library-system-architecture-dark",
+      "path": "ai-build-log-lab/media/screenshots/ontahi-library-system-architecture-dark.png",
+      "projectId": "ontahi-library-living-systems",
+      "title": "Ontahi Library / System Architecture - dark",
+      "mode": "dark",
+      "kind": "book-reader",
+      "notes": "Dark-mode chapter cover with tree-ring imagery and nested chapter navigation."
+    },
+    {
+      "id": "psicoanalisis-freud-primer-parcial-light",
+      "path": "ai-build-log-lab/media/screenshots/psicoanalisis-freud-primer-parcial-light.png",
+      "projectId": "psicoanalisis-freud-laznik",
+      "title": "Psicoanalisis Freud - primer parcial material - light",
+      "mode": "light",
+      "kind": "study-book",
+      "notes": "BookOps reader showing an integrated timeline diagram for the first Freud material."
+    },
+    {
+      "id": "psicoanalisis-freud-primer-parcial-dark",
+      "path": "ai-build-log-lab/media/screenshots/psicoanalisis-freud-primer-parcial-dark.png",
+      "projectId": "psicoanalisis-freud-laznik",
+      "title": "Psicoanalisis Freud - primer parcial material - dark",
+      "mode": "dark",
+      "kind": "study-book",
+      "notes": "Dark-mode BookOps reader showing Mermaid-like conceptual diagrams and deep navigation."
+    },
+    {
+      "id": "bookops-landing-dark",
+      "path": "ai-build-log-lab/media/screenshots/bookops-landing-dark.png",
+      "projectId": "bookops",
+      "title": "BookOps landing - dark",
+      "mode": "dark",
+      "kind": "product-home",
+      "notes": "BookOps author workspace with GitHub book onboarding and visible book cards."
+    },
+    {
+      "id": "bookops-landing-light",
+      "path": "ai-build-log-lab/media/screenshots/bookops-landing-light.png",
+      "projectId": "bookops",
+      "title": "BookOps landing - light",
+      "mode": "light",
+      "kind": "product-home",
+      "notes": "Light-mode BookOps author workspace."
+    },
+    {
+      "id": "bookops-emotia-reader-light",
+      "path": "ai-build-log-lab/media/screenshots/bookops-emotia-reader-light.png",
+      "projectId": "bookops",
+      "title": "BookOps reader with Emotia - light",
+      "mode": "light",
+      "kind": "book-reader",
+      "notes": "BookOps reading experience applied to Emotia, showing table of contents, centered text, audio controls and margin illustration."
+    },
+    {
+      "id": "bookops-comment-thread-light",
+      "path": "ai-build-log-lab/media/screenshots/bookops-comment-thread-light.png",
+      "projectId": "bookops",
+      "title": "BookOps conversation with reactions - light",
+      "mode": "light",
+      "kind": "feedback",
+      "notes": "Inline conversation anchored to highlighted text, with reaction count and resolve flow inside the reader."
+    },
+    {
+      "id": "bookops-reaction-autocomplete-dark",
+      "path": "ai-build-log-lab/media/screenshots/bookops-reaction-autocomplete-dark.png",
+      "projectId": "bookops",
+      "title": "BookOps reaction autocomplete - dark",
+      "mode": "dark",
+      "kind": "feedback",
+      "notes": "Dark-mode inline discussion composer with emoji/reaction autocomplete over selected text."
+    },
+    {
+      "id": "ontahi-graph-entity-browser-light",
+      "path": "ai-build-log-lab/media/screenshots/ontahi-graph-entity-browser-light.png",
+      "projectId": "ontahi",
+      "title": "Ontahi Graph Entity Browser - light",
+      "mode": "light",
+      "kind": "internal-ops-ui",
+      "notes": "Reflective Entity Browser showing schema metadata, operations and persisted Book rows."
+    },
+    {
+      "id": "ontahi-graph-entity-browser-dark",
+      "path": "ai-build-log-lab/media/screenshots/ontahi-graph-entity-browser-dark.png",
+      "projectId": "ontahi",
+      "title": "Ontahi Graph Entity Browser - dark",
+      "mode": "dark",
+      "kind": "internal-ops-ui",
+      "notes": "Dark-mode reflective Entity Browser."
+    },
+    {
+      "id": "workstream-atlas-dark",
+      "path": "ai-build-log-lab/media/screenshots/workstream-atlas-dark.png",
+      "projectId": "atlas",
+      "title": "Workstream Atlas - dark",
+      "mode": "dark",
+      "kind": "semantic-map",
+      "notes": "Dark-mode semantic map with graph canvas, item counts and detail inspector."
+    },
+    {
+      "id": "workstream-atlas-light",
+      "path": "ai-build-log-lab/media/screenshots/workstream-atlas-light.png",
+      "projectId": "atlas",
+      "title": "Workstream Atlas - light",
+      "mode": "light",
+      "kind": "semantic-map",
+      "notes": "Light-mode semantic map with Atlas Model selected."
+    },
+    {
+      "id": "uba-psi-scheduler-light",
+      "path": "ai-build-log-lab/media/screenshots/uba-psi-scheduler-light.png",
+      "projectId": "uba-psi-scheduler",
+      "title": "UBA Psi Scheduler - light",
+      "mode": "light",
+      "kind": "study-tool",
+      "notes": "Calendar decision surface with selected subjects, vacancies, venues and saved choices."
+    },
+    {
+      "id": "uba-psi-scheduler-dark",
+      "path": "ai-build-log-lab/media/screenshots/uba-psi-scheduler-dark.png",
+      "projectId": "uba-psi-scheduler",
+      "title": "UBA Psi Scheduler - dark",
+      "mode": "dark",
+      "kind": "study-tool",
+      "notes": "Dark-mode calendar showing dense course offer, vacancy indicators and filters."
+    },
+    {
+      "id": "uba-psi-scheduler-analytics-overview-light",
+      "path": "ai-build-log-lab/media/screenshots/uba-psi-scheduler-analytics-overview-light.png",
+      "projectId": "uba-psi-scheduler",
+      "title": "UBA Psi Scheduler - analytics overview",
+      "mode": "light",
+      "kind": "analytics",
+      "notes": "Vacancy analytics overview with capture windows, status counters and time-series charts."
+    },
+    {
+      "id": "uba-psi-scheduler-analytics-vacancies-table-light",
+      "path": "ai-build-log-lab/media/screenshots/uba-psi-scheduler-analytics-vacancies-table-light.png",
+      "projectId": "uba-psi-scheduler",
+      "title": "UBA Psi Scheduler - vacancies by subject",
+      "mode": "light",
+      "kind": "analytics",
+      "notes": "Analytics table ranking vacancy availability by subject, with trends and capture history."
+    },
+    {
+      "id": "uba-psi-scheduler-analytics-drops-light",
+      "path": "ai-build-log-lab/media/screenshots/uba-psi-scheduler-analytics-drops-light.png",
+      "projectId": "uba-psi-scheduler",
+      "title": "UBA Psi Scheduler - vacancy drops",
+      "mode": "light",
+      "kind": "analytics",
+      "notes": "Drop analysis view showing temporal snapshots and top vacancy losses."
+    },
+    {
+      "id": "uba-psi-scheduler-subject-offer-blocks-light",
+      "path": "ai-build-log-lab/media/screenshots/uba-psi-scheduler-subject-offer-blocks-light.png",
+      "projectId": "uba-psi-scheduler",
+      "title": "UBA Psi Scheduler - subject offer blocks",
+      "mode": "light",
+      "kind": "calendar",
+      "notes": "Subject offer view showing available commissions and associated practical/theoretical blocks in the calendar."
+    },
+    {
+      "id": "uba-psi-scheduler-selected-commission-blocks-light",
+      "path": "ai-build-log-lab/media/screenshots/uba-psi-scheduler-selected-commission-blocks-light.png",
+      "projectId": "uba-psi-scheduler",
+      "title": "UBA Psi Scheduler - selected commission blocks",
+      "mode": "light",
+      "kind": "calendar",
+      "notes": "Selected commission state highlighting the chosen block and its related course blocks among the broader offer."
+    },
+    {
+      "id": "uba-psi-scheduler-tour-light",
+      "path": "ai-build-log-lab/media/screenshots/uba-psi-scheduler-tour-light.png",
+      "projectId": "uba-psi-scheduler",
+      "title": "UBA Psi Scheduler - interactive tour",
+      "mode": "light",
+      "kind": "onboarding",
+      "notes": "Interactive guided tour explaining the first decision step and pointing at the subject selector."
+    },
+    {
+      "id": "shiki-lang-wollok-dark",
+      "path": "ai-build-log-lab/media/screenshots/shiki-lang-wollok-dark.png",
+      "projectId": "shiki-lang-wollok",
+      "title": "Shiki Lang Wollok - dark",
+      "mode": "dark",
+      "kind": "code-highlight",
+      "notes": "Dark-mode Wollok syntax highlighting specimen rendered through the Shiki language package."
+    },
+    {
+      "id": "shiki-lang-wollok-light",
+      "path": "ai-build-log-lab/media/screenshots/shiki-lang-wollok-light.png",
+      "projectId": "shiki-lang-wollok",
+      "title": "Shiki Lang Wollok - light",
+      "mode": "light",
+      "kind": "code-highlight",
+      "notes": "Light-mode Wollok snippet showing object, var, method and return highlighting."
+    },
+    {
+      "id": "psicoanalisis-freud-reading-board-second-partial-dark",
+      "path": "ai-build-log-lab/media/screenshots/psicoanalisis-freud-reading-board-second-partial-dark.png",
+      "projectId": "freud-reading-board-2do-parcial",
+      "title": "Psicoanalisis Freud reading board - second partial - dark",
+      "mode": "dark",
+      "kind": "study-tool",
+      "notes": "Kanban-style reading board with progress, modules, guide tabs, repeated/read filters and reading cards."
+    },
+    {
+      "id": "neurofisiologia-mcq-practice-dark",
+      "path": "ai-build-log-lab/media/screenshots/neurofisiologia-mcq-practice-dark.png",
+      "projectId": "neuro-mcq",
+      "title": "Neurofisiologia MCQ practice - dark",
+      "mode": "dark",
+      "kind": "study-tool",
+      "notes": "Exam simulator with local question bank, progress counters, answer selection and evaluation controls."
+    },
+    {
+      "id": "neurofisiologia-mcq-practice-light",
+      "path": "ai-build-log-lab/media/screenshots/neurofisiologia-mcq-practice-light.png",
+      "projectId": "neuro-mcq",
+      "title": "Neurofisiologia MCQ practice - light",
+      "mode": "light",
+      "kind": "study-tool",
+      "notes": "Light-mode exam practice interface."
+    },
+    {
+      "id": "neurofisiologia-mcq-question-bank-light",
+      "path": "ai-build-log-lab/media/screenshots/neurofisiologia-mcq-question-bank-light.png",
+      "projectId": "neuro-mcq",
+      "title": "Neurofisiologia MCQ question bank - light",
+      "mode": "light",
+      "kind": "study-tool",
+      "notes": "Question-bank administration view with 303 questions, 31 topics, 16 sources and latest load metadata."
+    },
+    {
+      "id": "neurofisiologia-mcq-question-bank-dark",
+      "path": "ai-build-log-lab/media/screenshots/neurofisiologia-mcq-question-bank-dark.png",
+      "projectId": "neuro-mcq",
+      "title": "Neurofisiologia MCQ question bank - dark",
+      "mode": "dark",
+      "kind": "study-tool",
+      "notes": "Dark-mode question-bank view with searchable visualization table."
+    },
+    {
+      "id": "neurofisiologia-mcq-json-source-dark",
+      "path": "ai-build-log-lab/media/screenshots/neurofisiologia-mcq-json-source-dark.png",
+      "projectId": "neuro-mcq",
+      "title": "Neurofisiologia MCQ JSON source - dark",
+      "mode": "dark",
+      "kind": "data-source",
+      "notes": "Structured JSON question-bank example with generated distractors, source metadata, options and answer key."
+    },
+    {
+      "id": "neurofisiologia-mcq-saved-sessions-dark",
+      "path": "ai-build-log-lab/media/screenshots/neurofisiologia-mcq-saved-sessions-dark.png",
+      "projectId": "neuro-mcq",
+      "title": "Neurofisiologia MCQ saved sessions - dark",
+      "mode": "dark",
+      "kind": "study-history",
+      "notes": "Saved practice history stored locally, with timestamps, modes, scores and export actions."
+    },
+    {
+      "id": "ontahi-book-of-style-dark",
+      "path": "ai-build-log-lab/media/screenshots/ontahi-book-of-style-dark.png",
+      "projectId": "ontahi-book-of-style",
+      "title": "Ontahi Book of Style - dark",
+      "mode": "dark",
+      "kind": "style-spec",
+      "notes": "Dark-mode BookOps reader page for The Ontahi Language Kit, showing the Ceibo symbol specimen and botanical design language."
+    },
+    {
+      "id": "ontahi-book-of-style-light",
+      "path": "ai-build-log-lab/media/screenshots/ontahi-book-of-style-light.png",
+      "projectId": "ontahi-book-of-style",
+      "title": "Ontahi Book of Style - light",
+      "mode": "light",
+      "kind": "style-spec",
+      "notes": "Light-mode Ontahi style specification rendered with its own botanical visual system."
+    },
+    {
+      "id": "progbook-mechanics-of-thoughts-light",
+      "path": "ai-build-log-lab/media/screenshots/progbook-mechanics-of-thoughts-light.png",
+      "projectId": "progbook",
+      "title": "The Mechanics of Thoughts - light",
+      "mode": "light",
+      "kind": "book-reader",
+      "notes": "The Mechanics of Thoughts rendered in BookOps with code blocks, a chess example and margin feedback."
+    },
+    {
+      "id": "progbook-mechanics-of-thoughts-dark",
+      "path": "ai-build-log-lab/media/screenshots/progbook-mechanics-of-thoughts-dark.png",
+      "projectId": "progbook",
+      "title": "The Mechanics of Thoughts - dark",
+      "mode": "dark",
+      "kind": "book-reader",
+      "notes": "Dark-mode The Mechanics of Thoughts page showing the reader, code presentation and annotation margin."
+    },
+    {
+      "id": "progbook-slide-mode-light",
+      "path": "ai-build-log-lab/media/screenshots/progbook-slide-mode-light.png",
+      "projectId": "progbook",
+      "title": "The Mechanics of Thoughts slide mode - light",
+      "mode": "light",
+      "kind": "slide-mode",
+      "notes": "BookOps slide mode for The Mechanics of Thoughts, turning a conceptual section into a navigable learning presentation."
+    },
+    {
+      "id": "progbook-slide-mode-dark",
+      "path": "ai-build-log-lab/media/screenshots/progbook-slide-mode-dark.png",
+      "projectId": "progbook",
+      "title": "The Mechanics of Thoughts slide mode - dark",
+      "mode": "dark",
+      "kind": "slide-mode",
+      "notes": "Dark-mode slide mode with progress, theme controls and conceptual diagram framing."
+    }
+  ]
+}

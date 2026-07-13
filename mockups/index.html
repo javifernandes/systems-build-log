@@ -1,0 +1,922 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>AI Build Log - Visual Mockups v0</title>
+    <style>
+      :root {
+        --paper: #fbfbf8;
+        --paper-2: #f2f5f1;
+        --ink: #171716;
+        --muted: #686862;
+        --hairline: #d7d8d0;
+        --ceibo: #b3272d;
+        --leaf: #28745f;
+        --cobalt: #2457a6;
+        --amber: #bd8b22;
+        --violet: #6c4aa0;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        background: #eceeea;
+        color: var(--ink);
+        font-family:
+          Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      }
+
+      .stage {
+        display: grid;
+        gap: 48px;
+        padding: 48px;
+      }
+
+      .sheet {
+        position: relative;
+        width: 1600px;
+        height: 1000px;
+        overflow: hidden;
+        background:
+          linear-gradient(var(--hairline) 1px, transparent 1px),
+          linear-gradient(90deg, var(--hairline) 1px, transparent 1px),
+          var(--paper);
+        background-size:
+          80px 80px,
+          80px 80px,
+          auto;
+        border: 1px solid #c7c8c0;
+        box-shadow: 0 24px 80px rgba(20, 20, 20, 0.12);
+      }
+
+      .sheet::before {
+        content: "";
+        position: absolute;
+        inset: 26px;
+        pointer-events: none;
+        border: 1px solid rgba(23, 23, 22, 0.11);
+      }
+
+      h1,
+      h2,
+      h3,
+      p {
+        margin: 0;
+      }
+
+      .eyebrow {
+        color: var(--ceibo);
+        font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+        font-size: 15px;
+        font-weight: 700;
+        letter-spacing: 0;
+        text-transform: uppercase;
+      }
+
+      .title {
+        max-width: 820px;
+        margin-top: 18px;
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: 66px;
+        font-weight: 500;
+        line-height: 1.01;
+        letter-spacing: 0;
+      }
+
+      .subtitle {
+        max-width: 650px;
+        margin-top: 24px;
+        color: #2d2d2a;
+        font-size: 21px;
+        line-height: 1.34;
+      }
+
+      .small {
+        color: var(--muted);
+        font-size: 15px;
+        line-height: 1.45;
+      }
+
+      .mono {
+        font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      }
+
+      .metric {
+        display: grid;
+        gap: 4px;
+      }
+
+      .metric strong {
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: 42px;
+        font-weight: 500;
+        line-height: 1;
+      }
+
+      .metric span {
+        color: var(--muted);
+        font-size: 14px;
+      }
+
+      .rule {
+        height: 1px;
+        background: var(--ink);
+        opacity: 0.2;
+      }
+
+      .dot {
+        position: absolute;
+        width: 14px;
+        height: 14px;
+        border-radius: 999px;
+        border: 2px solid var(--paper);
+        background: var(--ink);
+        box-shadow: 0 0 0 1px var(--ink);
+      }
+
+      .node-label {
+        position: absolute;
+        width: 210px;
+        font-size: 15px;
+        line-height: 1.25;
+      }
+
+      .node-label strong {
+        display: block;
+        font-size: 20px;
+        line-height: 1.06;
+      }
+
+      .node-label span {
+        display: block;
+        margin-top: 6px;
+        color: var(--muted);
+        font-size: 13px;
+      }
+
+      .timeline-line {
+        position: absolute;
+        left: 164px;
+        right: 208px;
+        top: 580px;
+        height: 2px;
+        background: var(--ink);
+      }
+
+      .month {
+        position: absolute;
+        top: 602px;
+        color: var(--muted);
+        font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+        font-size: 13px;
+      }
+
+      .branch {
+        position: absolute;
+        width: 1px;
+        background: var(--ink);
+        transform-origin: top;
+        opacity: 0.45;
+      }
+
+      .claim-box {
+        position: absolute;
+        right: 96px;
+        top: 82px;
+        width: 342px;
+        padding: 28px 30px;
+        border-left: 5px solid var(--ceibo);
+        background: rgba(255, 255, 255, 0.72);
+      }
+
+      .claim-box p {
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: 23px;
+        line-height: 1.18;
+      }
+
+      .claim-box .small {
+        margin-top: 18px;
+      }
+
+      .metrics-strip {
+        position: absolute;
+        left: 96px;
+        right: 96px;
+        bottom: 78px;
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        gap: 20px;
+        padding-top: 22px;
+        border-top: 1px solid rgba(23, 23, 22, 0.22);
+      }
+
+      .map-key {
+        position: absolute;
+        right: 96px;
+        bottom: 210px;
+        width: 430px;
+        display: none;
+        gap: 10px;
+      }
+
+      .key-row {
+        display: grid;
+        grid-template-columns: 16px 1fr;
+        align-items: center;
+        gap: 10px;
+        color: var(--muted);
+        font-size: 15px;
+      }
+
+      .key-dot {
+        width: 11px;
+        height: 11px;
+        border-radius: 999px;
+      }
+
+      .sheet-header {
+        position: absolute;
+        left: 82px;
+        top: 70px;
+        right: 82px;
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+      }
+
+      .sheet-heading {
+        max-width: 760px;
+      }
+
+      .sheet-heading h2 {
+        margin-top: 12px;
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: 50px;
+        font-weight: 500;
+        line-height: 1.03;
+      }
+
+      .sheet-heading p {
+        margin-top: 16px;
+        max-width: 660px;
+        color: #30302d;
+        font-size: 18px;
+        line-height: 1.36;
+      }
+
+      .evidence-grid {
+        position: absolute;
+        left: 82px;
+        right: 82px;
+        top: 315px;
+        display: grid;
+        grid-template-columns: 1.05fr 0.95fr;
+        gap: 34px;
+      }
+
+      .log-list {
+        display: grid;
+        gap: 14px;
+      }
+
+      .log-row {
+        display: grid;
+        grid-template-columns: 116px 1fr 108px;
+        gap: 18px;
+        min-height: 78px;
+        padding: 15px 0;
+        border-top: 1px solid rgba(23, 23, 22, 0.17);
+      }
+
+      .log-row:last-child {
+        border-bottom: 1px solid rgba(23, 23, 22, 0.17);
+      }
+
+      .date {
+        color: var(--ceibo);
+        font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+        font-size: 14px;
+        font-weight: 700;
+      }
+
+      .log-row h3 {
+        font-size: 22px;
+        line-height: 1.1;
+      }
+
+      .log-row p {
+        margin-top: 6px;
+        color: var(--muted);
+        font-size: 15px;
+        line-height: 1.32;
+      }
+
+      .count-pill {
+        justify-self: end;
+        width: 92px;
+        height: 38px;
+        display: grid;
+        place-items: center;
+        border: 1px solid rgba(23, 23, 22, 0.22);
+        background: rgba(255, 255, 255, 0.6);
+        color: var(--ink);
+        font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+        font-size: 14px;
+      }
+
+      .visual-stack {
+        display: grid;
+        gap: 18px;
+      }
+
+      .screenshot {
+        position: relative;
+        min-height: 184px;
+        overflow: hidden;
+        border: 1px solid rgba(23, 23, 22, 0.22);
+        background:
+          repeating-linear-gradient(
+            135deg,
+            rgba(36, 87, 166, 0.07),
+            rgba(36, 87, 166, 0.07) 12px,
+            rgba(255, 255, 255, 0.46) 12px,
+            rgba(255, 255, 255, 0.46) 24px
+          ),
+          #fff;
+      }
+
+      .screenshot.large {
+        min-height: 318px;
+      }
+
+      .screenshot.compact {
+        min-height: 126px;
+      }
+
+      .screenshot img {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: top left;
+      }
+
+      .screenshot-label {
+        position: absolute;
+        left: 18px;
+        top: 16px;
+        z-index: 2;
+        display: inline-flex;
+        align-items: center;
+        height: 30px;
+        padding: 0 10px;
+        background: var(--paper);
+        border: 1px solid rgba(23, 23, 22, 0.22);
+        color: var(--muted);
+        font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+        font-size: 12px;
+      }
+
+      .callout {
+        position: absolute;
+        right: 18px;
+        bottom: 16px;
+        z-index: 2;
+        width: 260px;
+        padding: 14px 16px;
+        border-left: 4px solid var(--leaf);
+        background: rgba(251, 251, 248, 0.92);
+        font-size: 14px;
+        line-height: 1.35;
+      }
+
+      .mini-board {
+        position: absolute;
+        left: 24px;
+        right: 24px;
+        bottom: 22px;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 12px;
+      }
+
+      .mini-col {
+        min-height: 130px;
+        padding: 12px;
+        background: rgba(255, 255, 255, 0.82);
+        border: 1px solid rgba(23, 23, 22, 0.13);
+      }
+
+      .mini-col b {
+        display: block;
+        margin-bottom: 10px;
+        color: var(--muted);
+        font-size: 12px;
+        text-transform: uppercase;
+      }
+
+      .mini-card {
+        height: 28px;
+        margin-top: 8px;
+        border-left: 4px solid var(--ceibo);
+        background: #f6f6f0;
+      }
+
+      .case-layout {
+        position: absolute;
+        left: 82px;
+        right: 82px;
+        top: 270px;
+        bottom: 72px;
+        display: grid;
+        grid-template-columns: 0.92fr 1.08fr;
+        gap: 34px;
+      }
+
+      .case-rail {
+        display: grid;
+        grid-template-rows: auto auto 1fr;
+        gap: 24px;
+      }
+
+      .problem {
+        padding: 26px 28px;
+        border-left: 5px solid var(--ceibo);
+        background: rgba(255, 255, 255, 0.7);
+      }
+
+      .problem h3 {
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: 33px;
+        font-weight: 500;
+        line-height: 1.06;
+      }
+
+      .problem p {
+        margin-top: 14px;
+        color: #30302d;
+        font-size: 17px;
+        line-height: 1.4;
+      }
+
+      .evidence-card {
+        padding: 20px 0;
+        border-top: 1px solid rgba(23, 23, 22, 0.18);
+      }
+
+      .evidence-card h4 {
+        margin: 0 0 10px;
+        font-size: 16px;
+        text-transform: uppercase;
+      }
+
+      .evidence-card p {
+        color: var(--muted);
+        font-size: 15px;
+        line-height: 1.4;
+      }
+
+      .case-media {
+        display: grid;
+        grid-template-rows: 1fr auto;
+        gap: 18px;
+      }
+
+      .browser-frame {
+        position: relative;
+        min-height: 500px;
+        border: 1px solid rgba(23, 23, 22, 0.24);
+        background: #fff;
+      }
+
+      .browser-bar {
+        height: 44px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        padding: 0 16px;
+        border-bottom: 1px solid rgba(23, 23, 22, 0.16);
+        background: #f6f7f3;
+      }
+
+      .browser-dot {
+        width: 10px;
+        height: 10px;
+        border-radius: 999px;
+        background: var(--muted);
+        opacity: 0.55;
+      }
+
+      .browser-url {
+        margin-left: 12px;
+        color: var(--muted);
+        font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+        font-size: 13px;
+      }
+
+      .calendar-grid {
+        position: absolute;
+        left: 24px;
+        right: 24px;
+        top: 72px;
+        bottom: 24px;
+        display: grid;
+        grid-template-columns: 180px repeat(5, 1fr);
+        grid-template-rows: 42px repeat(6, 1fr);
+        border: 1px solid rgba(23, 23, 22, 0.13);
+      }
+
+      .cell {
+        border-right: 1px solid rgba(23, 23, 22, 0.1);
+        border-bottom: 1px solid rgba(23, 23, 22, 0.1);
+        background: #fbfbf8;
+      }
+
+      .event {
+        position: absolute;
+        width: 150px;
+        min-height: 56px;
+        padding: 8px 10px;
+        border-left: 5px solid var(--cobalt);
+        background: #eef3ff;
+        font-size: 12px;
+        line-height: 1.2;
+      }
+
+      .event.red {
+        border-left-color: var(--ceibo);
+        background: #fff0f1;
+      }
+
+      .event.green {
+        border-left-color: var(--leaf);
+        background: #eef8f3;
+      }
+
+      .case-footer {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 16px;
+      }
+
+      .micro-metric {
+        min-height: 90px;
+        padding: 16px;
+        border-top: 1px solid rgba(23, 23, 22, 0.22);
+      }
+
+      .micro-metric b {
+        display: block;
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: 30px;
+        font-weight: 500;
+      }
+
+      .micro-metric span {
+        color: var(--muted);
+        font-size: 13px;
+        line-height: 1.25;
+      }
+
+      .tag-cloud {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+
+      .tag {
+        padding: 6px 9px;
+        border: 1px solid rgba(23, 23, 22, 0.18);
+        background: rgba(255, 255, 255, 0.64);
+        color: #32322f;
+        font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+        font-size: 12px;
+      }
+    </style>
+  </head>
+  <body>
+    <main class="stage">
+      <article id="sheet-map" class="sheet" aria-label="Mapa general del build log">
+        <div style="position: absolute; left: 96px; top: 82px">
+          <div class="eyebrow">Public AI Build Log / v0</div>
+          <h1 class="title">Seis meses construyendo herramientas para pensar con IA</h1>
+          <p class="subtitle">
+            De necesidades de estudio y escritura a una infraestructura propia para libros vivos,
+            operaciones reflexivas y mapas de planes.
+          </p>
+        </div>
+
+        <div class="claim-box">
+          <p>"No escribi cada linea a mano. Diseñe sistemas, dirigi iteraciones y use IA como material de construccion."</p>
+          <p class="small mono">Claude -> DeepSeek -> Codex / pendiente de cuantificar</p>
+        </div>
+
+        <div class="timeline-line"></div>
+        <span class="month" style="left: 158px">ENE</span>
+        <span class="month" style="left: 365px">FEB</span>
+        <span class="month" style="left: 575px">MAR</span>
+        <span class="month" style="left: 785px">ABR</span>
+        <span class="month" style="left: 992px">MAY</span>
+        <span class="month" style="left: 1205px">JUN</span>
+        <span class="month" style="left: 1412px">JUL</span>
+
+        <div class="dot" style="left: 198px; top: 573px; background: var(--amber)"></div>
+        <div class="branch" style="left: 205px; top: 430px; height: 150px"></div>
+        <div class="node-label" style="left: 158px; top: 424px">
+          <strong>Progbook</strong>
+          <span>2026-01-28 / libro LaTeX / 15k lineas</span>
+        </div>
+
+        <div class="dot" style="left: 400px; top: 573px; background: var(--cobalt)"></div>
+        <div class="branch" style="left: 407px; top: 640px; height: 112px"></div>
+        <div class="node-label" style="left: 360px; top: 760px">
+          <strong>BookOps</strong>
+          <span>2026-02-16 / 380 commits / lector vivo</span>
+        </div>
+
+        <div class="dot" style="left: 615px; top: 573px; background: var(--leaf)"></div>
+        <div class="branch" style="left: 622px; top: 408px; height: 170px"></div>
+        <div class="node-label" style="left: 568px; top: 420px">
+          <strong>UBA Psi Scheduler</strong>
+          <span>Marzo / 80 commits / calendario, cupos, analytics</span>
+        </div>
+
+        <div class="dot" style="left: 1018px; top: 573px; background: var(--ceibo)"></div>
+        <div class="branch" style="left: 1025px; top: 402px; height: 176px"></div>
+        <div class="node-label" style="left: 955px; top: 410px">
+          <strong>Freud / Laznik</strong>
+          <span>Mayo / libro de estudio / Mermaid + estructura</span>
+        </div>
+
+        <div class="dot" style="left: 1096px; top: 573px; background: var(--violet)"></div>
+        <div class="branch" style="left: 1103px; top: 640px; height: 96px"></div>
+        <div class="node-label" style="left: 1020px; top: 738px; width: 150px">
+          <strong>Shiki Wollok</strong>
+          <span>Mayo / pieza chica / sintaxis linda</span>
+        </div>
+
+        <div class="dot" style="left: 1268px; top: 573px; background: var(--leaf)"></div>
+        <div class="branch" style="left: 1275px; top: 402px; height: 176px"></div>
+        <div class="node-label" style="left: 1188px; top: 772px; width: 150px">
+          <strong>Ontahi Style</strong>
+          <span>Junio / spec visual ejecutada por BookOps</span>
+        </div>
+
+        <div class="dot" style="left: 1376px; top: 573px; background: var(--amber)"></div>
+        <div class="branch" style="left: 1383px; top: 640px; height: 96px"></div>
+        <div class="node-label" style="left: 1350px; top: 722px; width: 150px">
+          <strong>Living Systems</strong>
+          <span>Julio / ensayo de sistemas + botanica</span>
+        </div>
+
+        <div class="dot" style="left: 1438px; top: 573px; background: var(--ceibo)"></div>
+        <div class="branch" style="left: 1445px; top: 412px; height: 166px"></div>
+        <div class="node-label" style="left: 1392px; top: 408px">
+          <strong>Atlas</strong>
+          <span>Julio / planes -> mapa semantico vivo</span>
+        </div>
+
+        <div class="map-key">
+          <div class="key-row"><span class="key-dot" style="background: var(--leaf)"></span><span>Herramientas situadas para estudiar y decidir.</span></div>
+          <div class="key-row"><span class="key-dot" style="background: var(--cobalt)"></span><span>Infraestructura de publicacion, feedback y operaciones.</span></div>
+          <div class="key-row"><span class="key-dot" style="background: var(--ceibo)"></span><span>Material intelectual y mapas de sistemas.</span></div>
+        </div>
+
+        <div class="metrics-strip">
+          <div class="metric"><strong>380</strong><span>commits en BookOps</span></div>
+          <div class="metric"><strong>157</strong><span>planes markdown</span></div>
+          <div class="metric"><strong>75</strong><span>items Atlas</span></div>
+          <div class="metric"><strong>12</strong><span>libros generados</span></div>
+          <div class="metric"><strong>80</strong><span>commits Scheduler en marzo</span></div>
+        </div>
+      </article>
+
+      <article id="sheet-log" class="sheet" aria-label="Lab log con evidencia">
+        <header class="sheet-header">
+          <div class="sheet-heading">
+            <div class="eyebrow">Direccion B / lab log auditable</div>
+            <h2>Un diario visual que se puede verificar</h2>
+            <p>
+              Cada bloque conecta una necesidad concreta, un artefacto funcionando y evidencia
+              trazable: commits, repos, demos, screenshots y decisiones de arquitectura.
+            </p>
+          </div>
+          <div class="tag-cloud" style="width: 390px; justify-content: flex-end">
+            <span class="tag">git history</span>
+            <span class="tag">screenshots</span>
+            <span class="tag">demos</span>
+            <span class="tag">stack</span>
+            <span class="tag">AI work mode</span>
+            <span class="tag">architecture notes</span>
+          </div>
+        </header>
+
+        <section class="evidence-grid">
+          <div class="log-list">
+            <div class="log-row">
+              <div class="date">2026-01-28</div>
+              <div>
+                <h3>Progbook abre la pregunta</h3>
+                <p>Un libro tecnico en LaTeX necesita lectura web, estructura y feedback continuo.</p>
+              </div>
+              <div class="count-pill">29 commits</div>
+            </div>
+            <div class="log-row">
+              <div class="date">2026-02-16</div>
+              <div>
+                <h3>BookOps convierte un libro en sistema</h3>
+                <p>Extractor, Supabase, auth, workflows, lector, feedback, sharing, tests y observabilidad.</p>
+              </div>
+              <div class="count-pill">380 commits</div>
+            </div>
+            <div class="log-row">
+              <div class="date">2026-03-06</div>
+              <div>
+                <h3>Scheduler para decidir inscripciones</h3>
+                <p>Calendario, agrupacion de bloques, cupos, sedes, conflictos y analiticas.</p>
+              </div>
+              <div class="count-pill">80 commits</div>
+            </div>
+            <div class="log-row">
+              <div class="date">2026-05-23</div>
+              <div>
+                <h3>Freud/Laznik empuja libros de estudio</h3>
+                <p>Notas, bibliografia, guias, Mermaid y estructura conceptual publicada en BookOps.</p>
+              </div>
+              <div class="count-pill">8k lines</div>
+            </div>
+            <div class="log-row">
+              <div class="date">2026-07-04</div>
+              <div>
+                <h3>Tablero de lectura para el segundo parcial</h3>
+                <p>App GH Pages con 49 lecturas, progreso local, guias, apuntes y bloques repetidos.</p>
+              </div>
+              <div class="count-pill">49 readings</div>
+            </div>
+            <div class="log-row">
+              <div class="date">2026-07-10</div>
+              <div>
+                <h3>Atlas nombra el problema de fondo</h3>
+                <p>Planes, evidencia y formas durables de un sistema vivo necesitan mapa semantico.</p>
+              </div>
+              <div class="count-pill">75 items</div>
+            </div>
+          </div>
+
+          <div class="visual-stack">
+            <div class="screenshot large" style="min-height: 285px">
+              <img
+                src="../media/screenshots/workstream-atlas-light.png"
+                alt="Workstream Atlas light"
+              />
+              <span class="screenshot-label">Workstream Atlas</span>
+              <div class="callout">La evolucion de planes ya tiene un mapa semantico navegable.</div>
+            </div>
+
+            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px">
+              <div class="screenshot compact">
+                <img src="../media/screenshots/bookops-landing-light.png" alt="BookOps landing light" />
+                <span class="screenshot-label">BookOps workspace</span>
+              </div>
+              <div class="screenshot compact">
+                <img src="../media/screenshots/uba-psi-scheduler-dark.png" alt="UBA Psi Scheduler dark" />
+                <span class="screenshot-label">UBA Psi Scheduler</span>
+              </div>
+              <div class="screenshot compact">
+                <img
+                  src="../media/screenshots/neurofisiologia-mcq-practice-light.png"
+                  alt="Neurofisiologia MCQ practice light"
+                />
+                <span class="screenshot-label">Neuro MCQ</span>
+              </div>
+              <div class="screenshot compact">
+                <img
+                  src="../media/screenshots/psicoanalisis-freud-reading-board-second-partial-dark.png"
+                  alt="Psicoanalisis Freud reading board second partial dark"
+                />
+                <span class="screenshot-label">Reading board</span>
+              </div>
+              <div class="screenshot compact">
+                <img
+                  src="../media/screenshots/psicoanalisis-freud-primer-parcial-light.png"
+                  alt="Psicoanalisis Freud primer parcial light"
+                />
+                <span class="screenshot-label">Freud map</span>
+              </div>
+              <div class="screenshot compact">
+                <img
+                  src="../media/screenshots/ontahi-graph-entity-browser-light.png"
+                  alt="Ontahi Graph Entity Browser light"
+                />
+                <span class="screenshot-label">Ontahi Graph</span>
+              </div>
+            </div>
+
+            <div class="rule"></div>
+            <p class="small">
+              Regla editorial: cada captura debe tener un callout concreto. Problema real,
+              decision de diseno, stack probado o evidencia de uso.
+            </p>
+          </div>
+        </section>
+      </article>
+
+      <article id="sheet-case" class="sheet" aria-label="Caso de proyecto">
+        <header class="sheet-header">
+          <div class="sheet-heading">
+            <div class="eyebrow">Direccion C / pagina de caso</div>
+            <h2>UBA Psi Scheduler</h2>
+            <p>
+              Ejemplo de ficha repetible: necesidad vivida, herramienta, arquitectura,
+              evidencia y demo publica.
+            </p>
+          </div>
+          <div class="metric" style="width: 260px; text-align: right">
+            <strong>03/06 -> 03/28</strong>
+            <span>80 commits concentrados en marzo</span>
+          </div>
+        </header>
+
+        <section class="case-layout">
+          <div class="case-rail">
+            <div class="problem">
+              <h3>Elegir materias era un problema de visualizacion, no de voluntad.</h3>
+              <p>
+                La oferta publica estaba fragmentada entre teoricos, practicos y seminarios.
+                La herramienta reagrupa bloques, expone conflictos, cupos y sedes para decidir
+                con menos friccion.
+              </p>
+            </div>
+
+            <div>
+              <div class="evidence-card">
+                <h4>Evidencia</h4>
+                <p>Repo local: 197 archivos trackeados, 22k lineas textuales, tests unitarios y e2e.</p>
+              </div>
+              <div class="evidence-card">
+                <h4>Stack explorado</h4>
+                <p>Next, Cloudflare/OpenNext, Convex, Clerk, PostHog, ECharts, Shepherd, Vitest, Playwright.</p>
+              </div>
+              <div class="evidence-card">
+                <h4>AI angle</h4>
+                <p>Iteracion rapida sobre scraping, modelado de horarios, UI densa, persistencia y analiticas.</p>
+              </div>
+            </div>
+
+            <div class="tag-cloud" style="align-content: end">
+              <span class="tag">calendario</span>
+              <span class="tag">conflictos</span>
+              <span class="tag">cupos</span>
+              <span class="tag">sedes</span>
+              <span class="tag">analytics</span>
+              <span class="tag">tour</span>
+              <span class="tag">Cloudflare</span>
+              <span class="tag">Convex</span>
+            </div>
+          </div>
+
+          <div class="case-media">
+            <div class="browser-frame">
+              <div class="browser-bar">
+                <span class="browser-dot"></span>
+                <span class="browser-dot"></span>
+                <span class="browser-dot"></span>
+                <span class="browser-url">uba-psi-scheduler.javier-fernandes.workers.dev/oferta</span>
+              </div>
+              <div class="calendar-grid">
+                <div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div>
+                <div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div>
+                <div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div>
+                <div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div>
+                <div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div>
+                <div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div>
+                <div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div>
+                <div class="event green" style="left: 236px; top: 124px">Practico 14<br />9:00 - 11:00<br />Vac 18</div>
+                <div class="event" style="left: 420px; top: 208px">Teorico<br />13:00 - 15:00<br />HY</div>
+                <div class="event red" style="left: 602px; top: 162px">Conflicto<br />se solapa<br />con Freud</div>
+                <div class="event green" style="left: 626px; top: 238px">Seminario<br />18:00 - 20:00<br />Sede Indep.</div>
+                <div class="event" style="left: 972px; top: 96px">Practico 21<br />11:00 - 13:00<br />Vac 4</div>
+              </div>
+              <div class="callout" style="right: 34px; bottom: 34px">
+                La captura real deberia mostrar una decision: conflictos visibles y cupos dentro del mismo plano.
+              </div>
+            </div>
+
+            <div class="case-footer">
+              <div class="micro-metric"><b>80</b><span>commits en un sprint intermitente</span></div>
+              <div class="micro-metric"><b>22k</b><span>lineas textuales trackeadas aprox.</span></div>
+              <div class="micro-metric"><b>30m</b><span>frecuencia relatada de actualizacion de cupos</span></div>
+              <div class="micro-metric"><b>2</b><span>vistas: decision individual + analytics cross carrera</span></div>
+            </div>
+          </div>
+        </section>
+      </article>
+    </main>
+  </body>
+</html>
