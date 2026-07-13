@@ -592,14 +592,57 @@ h3 {
   object-fit: cover;
   object-position: top left;
   transition:
+    opacity 180ms ease,
     filter 160ms ease,
     transform 220ms ease;
+}
+
+.zoom-trigger.loading img {
+  opacity: 0;
+}
+
+.zoom-trigger.loaded img {
+  opacity: 1;
 }
 
 .zoom-trigger:hover img,
 .zoom-trigger:focus-visible img {
   filter: saturate(0.96) contrast(0.98);
   transform: scale(1.006);
+}
+
+.image-loading {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  display: grid;
+  place-items: center;
+  align-content: center;
+  gap: 10px;
+  border-radius: 10px;
+  background:
+    linear-gradient(135deg, rgba(251, 251, 247, 0.96), rgba(246, 247, 244, 0.84)),
+    radial-gradient(circle at 50% 42%, rgba(181, 31, 39, 0.08), transparent 36%);
+  color: rgba(25, 25, 22, 0.56);
+  font-size: 12px;
+  letter-spacing: 0;
+  pointer-events: none;
+}
+
+.status-spinner {
+  display: block;
+  width: 24px;
+  height: 24px;
+  border: 2px solid rgba(181, 31, 39, 0.18);
+  border-top-color: var(--red);
+  border-radius: 999px;
+  animation: spinner-rotate 780ms linear infinite;
+}
+
+@keyframes spinner-rotate {
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 .zoom-affordance {
@@ -988,12 +1031,23 @@ h3 {
 }
 
 .status-panel {
+  display: grid;
+  justify-items: center;
+  gap: 12px;
   margin-top: 80px;
   padding: 42px;
+  text-align: center;
 }
 
 .status-panel h1 {
+  margin: 0;
   font-size: 48px;
+}
+
+.status-panel p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 16px;
 }
 
 .zoom-overlay {

@@ -119,6 +119,42 @@
       "notes": "Light-mode semantic map with Atlas Model selected."
     },
     {
+      "id": "workstream-atlas-evolution-light",
+      "path": "ai-build-log-lab/media/screenshots/workstream-atlas-evolution-light.png",
+      "projectId": "atlas",
+      "title": "Workstream Atlas - item evolution - light",
+      "mode": "light",
+      "kind": "semantic-map",
+      "notes": "Item detail modal showing the Evolution tab with past, now, next and later relationships."
+    },
+    {
+      "id": "workstream-atlas-evolution-dark",
+      "path": "ai-build-log-lab/media/screenshots/workstream-atlas-evolution-dark.png",
+      "projectId": "atlas",
+      "title": "Workstream Atlas - item evolution - dark",
+      "mode": "dark",
+      "kind": "semantic-map",
+      "notes": "Dark-mode Evolution tab with temporal columns over the semantic map backdrop."
+    },
+    {
+      "id": "workstream-atlas-plan-detail-light",
+      "path": "ai-build-log-lab/media/screenshots/workstream-atlas-plan-detail-light.png",
+      "projectId": "atlas",
+      "title": "Workstream Atlas - plan detail - light",
+      "mode": "light",
+      "kind": "plan-detail",
+      "notes": "Plan detail modal showing overview content, implementation goals and code-oriented constraints."
+    },
+    {
+      "id": "workstream-atlas-plan-detail-dark",
+      "path": "ai-build-log-lab/media/screenshots/workstream-atlas-plan-detail-dark.png",
+      "projectId": "atlas",
+      "title": "Workstream Atlas - plan detail - dark",
+      "mode": "dark",
+      "kind": "plan-detail",
+      "notes": "Dark-mode plan detail modal with source-like planning content and implementation goals."
+    },
+    {
       "id": "uba-psi-scheduler-light",
       "path": "ai-build-log-lab/media/screenshots/uba-psi-scheduler-light.png",
       "projectId": "uba-psi-scheduler",
@@ -216,6 +252,15 @@
       "mode": "dark",
       "kind": "study-tool",
       "notes": "Kanban-style reading board with progress, modules, guide tabs, repeated/read filters and reading cards."
+    },
+    {
+      "id": "freud-reading-board-program-guides-dark",
+      "path": "ai-build-log-lab/media/screenshots/freud-reading-board-program-guides-dark.png",
+      "projectId": "freud-reading-board-2do-parcial",
+      "title": "Freud Reading Board - programa y guias - dark",
+      "mode": "dark",
+      "kind": "study-tool",
+      "notes": "Program and guide section connecting module topics, catedra notes and linked readings."
     },
     {
       "id": "neurofisiologia-mcq-practice-dark",

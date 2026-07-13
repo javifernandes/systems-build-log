@@ -73,7 +73,9 @@ const t = {
     pendingShot: "Screenshot pending",
     pendingEvidence: "Evidence pending",
     metrics: "Project metrics",
-    loadingTitle: "Loading evidence",
+    loadingTitle: "Loading projects...",
+    loadingSubtitle: "Preparing the build map and visual evidence.",
+    loadingImage: "Loading preview",
     errorTitle: "Could not load the lab",
     language: "Language",
     zoom: "Zoom",
@@ -138,7 +140,9 @@ const t = {
     pendingShot: "Captura pendiente",
     pendingEvidence: "Evidencia pendiente",
     metrics: "Metricas del proyecto",
-    loadingTitle: "Cargando evidencia",
+    loadingTitle: "Cargando proyectos...",
+    loadingSubtitle: "Preparando el mapa y la evidencia visual.",
+    loadingImage: "Cargando vista",
     errorTitle: "No pude cargar el lab",
     language: "Idioma",
     zoom: "Zoom",
@@ -399,6 +403,7 @@ function App() {
   const [selectedId, setSelectedId] = useState<string>("atlas");
   const [activeShotIndex, setActiveShotIndex] = useState(0);
   const [isZoomOpen, setIsZoomOpen] = useState(false);
+  const [loadedShotPath, setLoadedShotPath] = useState<string | null>(null);
   const shotRailRef = useRef<HTMLDivElement | null>(null);
   const copy = t[locale];
 
@@ -440,6 +445,8 @@ function App() {
   }, [screenshotsMap, selectedProject]);
 
   const selectedShot = selectedScreenshots[activeShotIndex] ?? selectedScreenshots[0];
+  const selectedShotSrc = selectedShot ? publicAssetPath(selectedShot.path) : null;
+  const isSelectedShotLoaded = selectedShotSrc !== null && loadedShotPath === selectedShotSrc;
 
   useEffect(() => {
     setActiveShotIndex(0);
@@ -581,7 +588,8 @@ function App() {
       <main className="app-shell">
         <section className="status-panel">
           <h1>{copy.loadingTitle}</h1>
-          <p>projects.json + screenshots.json</p>
+          <p>{copy.loadingSubtitle}</p>
+          <span className="status-spinner" aria-hidden="true" />
         </section>
       </main>
     );
@@ -785,14 +793,26 @@ function App() {
             ) : null}
 
             <figure className="hero-shot">
-              <div className="hero-media">
-                {selectedShot ? (
+              <div className="hero-media" aria-busy={selectedShot ? !isSelectedShotLoaded : undefined}>
+                {selectedShot && selectedShotSrc ? (
                   <button
-                    className="zoom-trigger"
+                    className={isSelectedShotLoaded ? "zoom-trigger loaded" : "zoom-trigger loading"}
                     type="button"
                     onClick={() => setIsZoomOpen(true)}
                   >
-                    <img src={publicAssetPath(selectedShot.path)} alt={selectedShot.title} />
+                    <img
+                      key={selectedShot.path}
+                      src={selectedShotSrc}
+                      alt={selectedShot.title}
+                      onLoad={() => setLoadedShotPath(selectedShotSrc)}
+                      onError={() => setLoadedShotPath(selectedShotSrc)}
+                    />
+                    {!isSelectedShotLoaded ? (
+                      <span className="image-loading" aria-live="polite">
+                        <span className="status-spinner" aria-hidden="true" />
+                        <span>{copy.loadingImage}</span>
+                      </span>
+                    ) : null}
                     <span className="zoom-affordance">
                       <MagnifyIcon />
                     </span>

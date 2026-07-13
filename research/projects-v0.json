@@ -284,11 +284,11 @@
       ],
       "pitch": "Tablero Kanban GH Pages para organizar lecturas del segundo parcial: progreso, apuntes de fotocopiadora, guias de catedra, bloques repetidos y casos de auditoria textual.",
       "media": [
-        "ai-build-log-lab/media/screenshots/psicoanalisis-freud-reading-board-second-partial-dark.png"
+        "ai-build-log-lab/media/screenshots/psicoanalisis-freud-reading-board-second-partial-dark.png",
+        "ai-build-log-lab/media/screenshots/freud-reading-board-program-guides-dark.png"
       ],
       "mediaNeeded": [
         "tarjeta de lectura",
-        "Programa/Guias",
         "warning Amorrortu",
         "modo claro si aparece"
       ]
@@ -401,12 +401,15 @@
       "pitch": "Mapa semantico markdown-first que nace de meta-analizar, explorar y formalizar la forma de desarrollo de BookOps y Ontahi. Parte de practicas tipo spec-driven development, pero busca un marco mas vivo que los issue trackers, skills o CLIs actuales para organizar planes, evidencia y decisiones.",
       "media": [
         "ai-build-log-lab/media/screenshots/workstream-atlas-light.png",
-        "ai-build-log-lab/media/screenshots/workstream-atlas-dark.png"
+        "ai-build-log-lab/media/screenshots/workstream-atlas-dark.png",
+        "ai-build-log-lab/media/screenshots/workstream-atlas-evolution-light.png",
+        "ai-build-log-lab/media/screenshots/workstream-atlas-evolution-dark.png",
+        "ai-build-log-lab/media/screenshots/workstream-atlas-plan-detail-light.png",
+        "ai-build-log-lab/media/screenshots/workstream-atlas-plan-detail-dark.png"
       ],
       "mediaNeeded": [
         "source markdown",
-        "evidence links",
-        "plan detail"
+        "evidence links"
       ]
     }
   ],
