@@ -48,6 +48,8 @@ async function verifyViewport(name, viewport) {
       title: document.title,
       bodyLength: bodyText.length,
       hasTitle:
+        bodyText.includes("System Design") ||
+        bodyText.includes("Diseño de sistemas") ||
         bodyText.includes("Verifiable map") ||
         bodyText.includes("Mapa verificable"),
       hasTimeline:

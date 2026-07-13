@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef, useState } from "react";
+import { type CSSProperties, useEffect, useMemo, useRef, useState } from "react";
 import {
   formatNumber,
   formatSignalValue,
@@ -52,9 +52,9 @@ const numberLocale = (locale: Locale) => (locale === "es" ? "es-AR" : "en-US");
 
 const t = {
   en: {
-    kicker: "Exploratory systems design / January to July 2026",
-    title: "Verifiable map of AI-built systems",
-    lead: "Real needs, running tools, repos, commits, screenshots, and architecture decisions in one navigable surface.",
+    kicker: "January to July 2026",
+    title: "System Design in the LLM-era",
+    lead: "A six-month personal log of real problems becoming working systems.",
     seeProjects: "See Projects",
     externalProfiles: "External profiles",
     githubProfile: "Javier Fernandes on GitHub",
@@ -66,12 +66,10 @@ const t = {
     stack: "Stack",
     openSite: "Open site",
     repository: "Repository",
-    nextEvidence: "Next evidence",
     visualEvidence: "Visual evidence",
     previousShot: "Previous screenshot",
     nextShot: "Next screenshot",
     pendingShot: "Screenshot pending",
-    pendingEvidence: "Evidence pending",
     metrics: "Project metrics",
     loadingTitle: "Loading projects...",
     loadingSubtitle: "Preparing the build map and visual evidence.",
@@ -119,27 +117,25 @@ const t = {
     },
   },
   es: {
-    kicker: "Diseno exploratorio de sistemas / Enero a Julio 2026",
-    title: "Mapa verificable de sistemas construidos con IA",
-    lead: "Necesidades reales, herramientas andando, repos, commits, capturas y decisiones de arquitectura en una sola superficie navegable.",
+    kicker: "Enero a julio 2026",
+    title: "Diseño de sistemas en la era LLM",
+    lead: "Un registro personal de seis meses: problemas reales volviéndose sistemas.",
     seeProjects: "Ver proyectos",
     externalProfiles: "Perfiles externos",
     githubProfile: "GitHub de Javier Fernandes",
     linkedInProfile: "LinkedIn de Javier Fernandes",
     summary: "Resumen cuantitativo",
     map: "Mapa y evidencia",
-    timeline: "Linea de tiempo",
+    timeline: "Línea de tiempo",
     detail: "Detalle del proyecto seleccionado",
     stack: "Stack",
     openSite: "Abrir sitio",
     repository: "Repositorio",
-    nextEvidence: "Proximas evidencias",
     visualEvidence: "Evidencia visual",
     previousShot: "Captura anterior",
     nextShot: "Captura siguiente",
     pendingShot: "Captura pendiente",
-    pendingEvidence: "Evidencia pendiente",
-    metrics: "Metricas del proyecto",
+    metrics: "Métricas del proyecto",
     loadingTitle: "Cargando proyectos...",
     loadingSubtitle: "Preparando el mapa y la evidencia visual.",
     loadingImage: "Cargando vista",
@@ -152,7 +148,7 @@ const t = {
     totals: {
       atlas: "atlas",
       commits: "commits",
-      lines: "lineas",
+      lines: "líneas",
       plans: "planes",
       projects: "proyectos",
       screenshots: "screenshots",
@@ -168,11 +164,11 @@ const t = {
       archivos: "archivos",
       atlas: "atlas",
       atlasItems: "items atlas",
-      chapters: "capitulos",
+      chapters: "capítulos",
       commits: "commits",
-      estimatedPages: "paginas",
+      estimatedPages: "páginas",
       generatedBooks: "libros generados",
-      lineas: "lineas",
+      lineas: "líneas",
       parts: "partes",
       planFiles: "planes",
       questions: "preguntas",
@@ -189,19 +185,19 @@ const t = {
 
 const englishPitches: Record<string, string> = {
   atlas:
-    "Markdown-first semantic map born from meta-analyzing, exploring, and formalizing how BookOps and Ontahi were being developed. It extends spec-driven development into a living frame for plans, evidence, and decisions where issue trackers, skills, and current CLIs did not quite fit.",
+    "Markdown-first semantic map born from meta-analyzing, exploring, and formalizing how BookOps and Ontahí were being developed. It extends spec-driven development into a living frame for plans, evidence, and decisions where issue trackers, skills, and current CLIs did not quite fit.",
   bookops:
     "Publishing and feedback system for living books: extraction, interactive reading, conversations, sharing, reading tracking, audio, operations, and synchronization.",
   "freud-reading-board-2do-parcial":
-    "GitHub Pages Kanban board for the second Freud partial: readings, progress, photocopy packets, course guides, repeated blocks, and textual audit cases.",
+    "Kanban board for the second Freud partial: readings, progress, photocopy packets, course guides, repeated blocks, and textual audit cases.",
   "neuro-mcq":
-    "Simple HTML simulator for multiple choice practice, topic recombination, JSON question banks, and localStorage progress.",
+    "Simple HTML simulator for multiple choice practice, topic recombination, JSON question banks, and local progress tracking.",
   ontahi:
     "Framework born from the need to improve BookOps architecture and from years of practical experience developing, researching, and teaching systems. It models entities, operations, runtimes, data, refs, cache, reflective execution, and durable operations; it is the core on which the other systems may be rebuilt.",
   "ontahi-book-of-style":
-    "BookOps book that specifies Ontahi visual language and UX while pushing BookOps itself to support custom reading experiences.",
+    "BookOps book that specifies Ontahí visual language and UX while pushing BookOps itself to support custom reading experiences.",
   "ontahi-library-living-systems":
-    "Ontahi documentation and essays library, published in BookOps. Its first piece explores systems and architecture through organic, biological, neural, anatomical, and psychoanalytic lenses.",
+    "Ontahí documentation and essays library, published in BookOps. Its first piece explores systems and architecture through organic, biological, neural, anatomical, and psychoanalytic lenses.",
   "progbook":
     "Book on programming fundamentals that sparked the need to ideate BookOps. Published as the first BookOps book, it opens prototypes for learning books with dynamic exercises generated and corrected by people or specialized LLMs, plus examples tailored to the reader's preferences or domains.",
   "psicoanalisis-freud-laznik":
@@ -211,6 +207,110 @@ const englishPitches: Record<string, string> = {
   "uba-psi-scheduler":
     "Calendar-style decision surface for Psychology UBA course registration: seats, venues, conflicts, block grouping, and vacancy analytics.",
 };
+
+const timelineLaneByProject: Record<string, number> = {
+  atlas: 4.55,
+  bookops: 1.72,
+  "freud-reading-board-2do-parcial": -0.88,
+  "neuro-mcq": -0.88,
+  ontahi: 2.68,
+  "ontahi-book-of-style": 3.62,
+  "ontahi-library-living-systems": 3.62,
+  progbook: 1.72,
+  "psicoanalisis-freud-laznik": -0.88,
+  "shiki-lang-wollok": -0.88,
+  "uba-psi-scheduler": -0.88,
+};
+
+const timelineRails = [
+  {
+    id: "mechanics-to-bookops",
+    kind: "h",
+    from: "progbook",
+    to: "bookops",
+    y: 24,
+    activeFor: [
+      "bookops",
+      "ontahi",
+      "ontahi-book-of-style",
+      "ontahi-library-living-systems",
+      "atlas",
+    ],
+  },
+  {
+    id: "bookops-entry",
+    kind: "v",
+    at: "bookops",
+    fromY: 24,
+    toY: 102,
+    activeFor: [
+      "bookops",
+      "ontahi",
+      "ontahi-book-of-style",
+      "ontahi-library-living-systems",
+      "atlas",
+    ],
+  },
+  {
+    id: "bookops-rail",
+    kind: "h",
+    from: "bookops",
+    to: "atlas",
+    y: 102,
+    extend: 0.62,
+    activeFor: ["ontahi", "ontahi-book-of-style", "ontahi-library-living-systems", "atlas"],
+  },
+  {
+    id: "ontahi-entry",
+    kind: "v",
+    at: "ontahi",
+    fromY: 102,
+    toY: 138,
+    activeFor: ["ontahi", "ontahi-book-of-style", "ontahi-library-living-systems", "atlas"],
+  },
+  {
+    id: "ontahi-rail",
+    kind: "h",
+    from: "ontahi",
+    to: "atlas",
+    y: 138,
+    extend: 0.58,
+    activeFor: ["ontahi-book-of-style", "ontahi-library-living-systems", "atlas"],
+  },
+  {
+    id: "style-entry",
+    kind: "v",
+    at: "ontahi-book-of-style",
+    fromY: 138,
+    toY: 174,
+    activeFor: ["ontahi-book-of-style"],
+  },
+  {
+    id: "docs-entry",
+    kind: "v",
+    at: "ontahi-library-living-systems",
+    fromY: 138,
+    toY: 174,
+    activeFor: ["ontahi-library-living-systems", "atlas"],
+  },
+  {
+    id: "docs-to-atlas",
+    kind: "h",
+    from: "ontahi-library-living-systems",
+    to: "atlas",
+    y: 174,
+    extend: 0.68,
+    activeFor: ["ontahi-library-living-systems", "atlas"],
+  },
+  {
+    id: "atlas-entry",
+    kind: "v",
+    at: "atlas",
+    fromY: 138,
+    toY: 214,
+    activeFor: ["atlas"],
+  },
+] as const;
 
 const externalTermLinks = new Map([
   ["AI SDK", "https://ai-sdk.dev/"],
@@ -223,10 +323,8 @@ const externalTermLinks = new Map([
   ["ECharts", "https://echarts.apache.org/"],
   ["Effect", "https://effect.website/"],
   ["GitHub Actions", "https://github.com/features/actions"],
-  ["GitHub Pages", "https://pages.github.com/"],
   ["JSON data", "https://www.json.org/json-en.html"],
   ["LaTeX", "https://www.latex-project.org/"],
-  ["localStorage", "https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage"],
   ["Next.js", "https://nextjs.org/"],
   ["next-safe-action", "https://next-safe-action.dev/"],
   ["OpenNext", "https://opennext.js.org/"],
@@ -255,22 +353,6 @@ const shortDateLabel = (isoDate: string) => {
 
 const formatCount = (value: number, locale: Locale) =>
   formatNumber(value, numberLocale(locale));
-
-const primaryMetric = (project: Project, locale: Locale) => {
-  if (project.commitCount) return `${formatCount(project.commitCount, locale)} commits`;
-  if (project.atlasItems) return `${formatCount(project.atlasItems, locale)} items`;
-  if (typeof project.dataSignals?.questions === "number") {
-    return `${formatCount(project.dataSignals.questions, locale)} ${
-      locale === "es" ? "preguntas" : "questions"
-    }`;
-  }
-  if (project.approxTextLines) {
-    return `${formatCount(project.approxTextLines, locale)} ${
-      locale === "es" ? "lineas" : "lines"
-    }`;
-  }
-  return project.kind;
-};
 
 const projectKind = (project: Project): keyof (typeof t)["en"]["kinds"] => {
   if (
@@ -429,7 +511,7 @@ function App() {
     window.localStorage.setItem(localeStorageKey, locale);
     document.documentElement.lang = locale;
     document.title =
-      locale === "en" ? "Verifiable map of AI-built systems" : "Mapa verificable de sistemas";
+      locale === "en" ? "System Design in the LLM-era" : "Diseño de sistemas en la era LLM";
   }, [locale]);
 
   const projects = useMemo(
@@ -582,6 +664,47 @@ function App() {
     };
   }, [projects, screenshots.length]);
 
+  const selectedProjectId = selectedProject?.id ?? "";
+  const projectIndex = new Map(projects.map((project, index) => [project.id, index]));
+  const visibleTimelineRails = timelineRails
+    .map((rail) => {
+      const columns = Math.max(projects.length, 1);
+
+      if (rail.kind === "h") {
+        const fromIndex = projectIndex.get(rail.from);
+        const toIndex = projectIndex.get(rail.to);
+        if (fromIndex === undefined || toIndex === undefined) return null;
+
+        const leftIndex = Math.min(fromIndex, toIndex);
+        const rightIndex = Math.max(fromIndex, toIndex);
+        const railExtension = "extend" in rail ? rail.extend : 0.48;
+
+        return {
+          ...rail,
+          isActive: (rail.activeFor as readonly string[]).includes(selectedProjectId),
+          style: {
+            left: `${(leftIndex / columns) * 100}%`,
+            top: `${rail.y}px`,
+            width: `${((rightIndex - leftIndex + railExtension) / columns) * 100}%`,
+          } satisfies CSSProperties,
+        };
+      }
+
+      const atIndex = projectIndex.get(rail.at);
+      if (atIndex === undefined) return null;
+
+      return {
+        ...rail,
+        isActive: (rail.activeFor as readonly string[]).includes(selectedProjectId),
+        style: {
+          height: `${Math.abs(rail.toY - rail.fromY)}px`,
+          left: `${(atIndex / columns) * 100}%`,
+          top: `${Math.min(rail.fromY, rail.toY)}px`,
+        } satisfies CSSProperties,
+      };
+    })
+    .filter((rail): rail is NonNullable<typeof rail> => rail !== null);
+
   if (error) {
     return (
       <main className="app-shell">
@@ -651,29 +774,64 @@ function App() {
           <p className="lead">{copy.lead}</p>
         </div>
 
-        <nav className="landing-timeline" aria-label={copy.timeline}>
-          {projects.map((project) => {
+        <nav
+          className="landing-timeline"
+          aria-label={copy.timeline}
+          style={{ "--timeline-columns": projects.length } as CSSProperties}
+        >
+          <div className="landing-lineage-layer" aria-hidden="true">
+            {visibleTimelineRails.map((rail) => (
+              <span
+                className={[
+                  "landing-lineage",
+                  rail.kind === "h" ? "horizontal" : "vertical",
+                  rail.isActive ? "active" : "",
+                ]
+                  .filter(Boolean)
+                  .join(" ")}
+                key={rail.id}
+                style={rail.style}
+              />
+            ))}
+          </div>
+
+          {projects.map((project, index) => {
             const date = projectDate(project);
+            const previousDate = projects[index - 1] ? projectDate(projects[index - 1]) : null;
             const isActive = project.id === selectedProject.id;
+            const lane = timelineLaneByProject[project.id] ?? 0;
+            const showMonth =
+              previousDate === null ||
+              monthLabel(date, locale) !== monthLabel(previousDate, locale);
 
             return (
               <button
-                className={isActive ? "landing-point active" : "landing-point"}
+                className={[
+                  "landing-point",
+                  isActive ? "active" : "",
+                ]
+                  .filter(Boolean)
+                  .join(" ")}
                 key={project.id}
                 onClick={() => selectProject(project.id, true)}
+                style={{ "--lane-offset": `${lane * 36}px` } as CSSProperties}
                 type="button"
               >
-                <span>{monthLabel(date, locale)}</span>
-                <strong>{project.title}</strong>
-                <em>{projectKindLabel(project, locale)}</em>
-                <small>{primaryMetric(project, locale)}</small>
+                {showMonth ? (
+                  <span className="landing-point-month">{monthLabel(date, locale)}</span>
+                ) : null}
+                <span className="landing-point-content">
+                  <strong>{project.title}</strong>
+                  <em>{projectKindLabel(project, locale)}</em>
+                </span>
               </button>
             );
           })}
         </nav>
 
         <button className="scroll-cue" type="button" onClick={scrollToProjects}>
-          {copy.seeProjects}
+          <span>{copy.seeProjects}</span>
+          <CaretDownIcon />
         </button>
 
         <dl className="metric-strip" aria-label={copy.summary}>
@@ -856,16 +1014,6 @@ function App() {
             ) : null}
           </div>
 
-          {selectedProject.mediaNeeded?.length ? (
-            <div className="todo-block">
-              <h3>{copy.nextEvidence}</h3>
-              <ul>
-                {selectedProject.mediaNeeded.slice(0, 3).map((item) => (
-                  <li key={item}>{item}</li>
-                ))}
-              </ul>
-            </div>
-          ) : null}
         </section>
 
         <section className="evidence-stage" aria-label={copy.visualEvidence}>
@@ -910,11 +1058,7 @@ function App() {
                   <div className="empty-shot">{copy.pendingShot}</div>
                 )}
               </div>
-              <figcaption>
-                {selectedShot?.notes ??
-                  selectedProject.mediaNeeded?.[0] ??
-                  copy.pendingEvidence}
-              </figcaption>
+              {selectedShot?.notes ? <figcaption>{selectedShot.notes}</figcaption> : null}
             </figure>
 
             {shouldShowInlineMediaArrows ? (
@@ -1134,6 +1278,17 @@ function ChevronRightIcon() {
     <svg aria-hidden="true" viewBox="0 0 24 24">
       <path
         d="M9.2 18.7a1 1 0 0 1 0-1.4l5.3-5.3-5.3-5.3a1 1 0 0 1 1.4-1.4l6 6a1 1 0 0 1 0 1.4l-6 6a1 1 0 0 1-1.4 0Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+}
+
+function CaretDownIcon() {
+  return (
+    <svg aria-hidden="true" viewBox="0 0 24 24">
+      <path
+        d="M7.2 9.4a1 1 0 0 1 1.4-.2L12 11.8l3.4-2.6a1 1 0 1 1 1.2 1.6l-4 3.1a1 1 0 0 1-1.2 0l-4-3.1a1 1 0 0 1-.2-1.4Z"
         fill="currentColor"
       />
     </svg>

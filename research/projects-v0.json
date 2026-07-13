@@ -32,7 +32,7 @@
       ],
       "trackedFiles": 65,
       "approxTextLines": 15212,
-      "pitch": "Libro sobre fundamentos de programacion que dispara la necesidad de idear BookOps. Publicado como primer libro BookOps, abre prototipos para libros de aprendizaje con ejercicios dinamicos, generados y corregidos por personas o LLMs especializados, y ejemplos adaptados a preferencias o dominios del lector.",
+      "pitch": "Libro sobre fundamentos de programación que dispara la necesidad de idear BookOps. Publicado como primer libro BookOps, abre prototipos para libros de aprendizaje con ejercicios dinámicos, generados y corregidos por personas o LLMs especializados, y ejemplos adaptados a preferencias o dominios del lector.",
       "stackSignals": [
         "LaTeX"
       ],
@@ -45,7 +45,7 @@
       ],
       "mediaNeeded": [
         "fragmento LaTeX fuente",
-        "codigo Wollok/Shiki"
+        "código Wollok/Shiki"
       ],
       "readingSignals": {
         "parts": 15,
@@ -104,7 +104,7 @@
         "Vercel Workflow",
         "AI SDK"
       ],
-      "pitch": "Sistema de publicacion y feedback para libros vivos: extractor, lector interactivo, conversaciones, sharing, tracking, audio, operaciones y sincronizacion.",
+      "pitch": "Sistema de publicación y feedback para libros vivos: extractor, lector interactivo, conversaciones, sharing, tracking, audio, operaciones y sincronización.",
       "lineage": [
         "progbook",
         "ontahi",
@@ -153,7 +153,7 @@
         "Vitest",
         "Playwright"
       ],
-      "pitch": "Visualizador tipo calendario para oferta academica de Psicologia UBA: cupos, sedes, conflictos, agrupacion de bloques y analytics de vacantes.",
+      "pitch": "Visualizador tipo calendario para oferta académica de Psicología UBA: cupos, sedes, conflictos, agrupación de bloques y analytics de vacantes.",
       "media": [
         "ai-build-log-lab/media/screenshots/uba-psi-scheduler-light.png",
         "ai-build-log-lab/media/screenshots/uba-psi-scheduler-dark.png",
@@ -182,7 +182,7 @@
       ],
       "trackedFiles": 7,
       "approxTextLines": 146,
-      "pitch": "Plugin chico pero funcional para que BookOps pueda mostrar codigo Wollok con resaltado Shiki.",
+      "pitch": "Plugin chico pero funcional para que BookOps pueda mostrar código Wollok con resaltado Shiki.",
       "media": [
         "ai-build-log-lab/media/screenshots/shiki-lang-wollok-light.png",
         "ai-build-log-lab/media/screenshots/shiki-lang-wollok-dark.png"
@@ -190,7 +190,7 @@
     },
     {
       "id": "psicoanalisis-freud-laznik",
-      "title": "Psicoanalisis Freud / Laznik",
+      "title": "Psicoanálisis Freud / Laznik",
       "kind": "book",
       "localPath": "/Users/jfernandes/dev/personal/bookops/psicoanalisis-freud-laznik",
       "repo": "git@github.com:javifernandes/psicoanalisis-freud-laznik.git",
@@ -203,7 +203,7 @@
       ],
       "trackedFiles": 40,
       "approxTextLines": 8123,
-      "pitch": "Libro de estudio hecho en BookOps que integra notas de clase, bibliografia, guias y material de parciales/finales para organizar Freud por etapas y problemas conceptuales, ejercitando el propio sistema de lectura.",
+      "pitch": "Libro de estudio hecho en BookOps que integra notas de clase, bibliografía, guías y material de parciales/finales para organizar Freud por etapas y problemas conceptuales, ejercitando el propio sistema de lectura.",
       "media": [
         "ai-build-log-lab/media/screenshots/psicoanalisis-freud-primer-parcial-light.png",
         "ai-build-log-lab/media/screenshots/psicoanalisis-freud-primer-parcial-dark.png"
@@ -222,7 +222,7 @@
     },
     {
       "id": "neuro-mcq",
-      "title": "Neurofisiologia MCQ Simulator",
+      "title": "Neurofisiología MCQ Simulator",
       "kind": "system",
       "source": "Google Drive",
       "publicUrl": "https://drive.google.com/drive/folders/1n6GsmpY3TCutu--YpKdBXpu-b8CUrXdc?usp=sharing",
@@ -233,7 +233,7 @@
         "topics": 31,
         "sources": 16
       },
-      "pitch": "HTML simple para simular multiple choice, recombinar temas, procesar bancos JSON y guardar progreso en localStorage.",
+      "pitch": "HTML simple para simular multiple choice, recombinar temas, procesar bancos JSON y guardar progreso local.",
       "media": [
         "ai-build-log-lab/media/screenshots/neurofisiologia-mcq-practice-light.png",
         "ai-build-log-lab/media/screenshots/neurofisiologia-mcq-practice-dark.png",
@@ -254,7 +254,7 @@
       "repo": "git@github.com:javifernandes/psicoanalisis-freud-laznik-lectura-2do-parcial.git",
       "publicUrl": "https://javifernandes.github.io/psicoanalisis-freud-laznik-lectura-2do-parcial/",
       "firstCommit": "2026-07-04 4f613a2 Initial commit",
-      "latestCommit": "2026-07-05 ec83e12 reflejando mejor las guias con el contenido original",
+      "latestCommit": "2026-07-05 ec83e12 reflejando mejor las guías con el contenido original",
       "commitCount": 8,
       "activeMonths": [
         "2026-07"
@@ -286,7 +286,7 @@
         "localStorage",
         "JSON data"
       ],
-      "pitch": "Tablero Kanban GH Pages para organizar lecturas del segundo parcial: progreso, apuntes de fotocopiadora, guias de catedra, bloques repetidos y casos de auditoria textual.",
+      "pitch": "Tablero Kanban para organizar lecturas del segundo parcial: progreso, apuntes de fotocopiadora, guías de cátedra, bloques repetidos y casos de auditoría textual.",
       "media": [
         "ai-build-log-lab/media/screenshots/freud-reading-board.gif",
         "ai-build-log-lab/media/screenshots/psicoanalisis-freud-reading-board-second-partial-dark.png",
@@ -301,7 +301,7 @@
       "repo": "git@github.com:javifernandes/ontahi-book-of-style.git",
       "publicUrl": "https://bookops.net/ontahi-book-of-style",
       "firstCommit": "2026-06-29 8fbe057 Initial commit",
-      "latestCommit": "2026-07-09 4d099b7 Style Ontahi margin notes",
+      "latestCommit": "2026-07-09 4d099b7 Style Ontahí margin notes",
       "commitCount": 10,
       "activeMonths": [
         "2026-06",
@@ -309,7 +309,7 @@
       ],
       "trackedFiles": 82,
       "approxTextLines": 1453,
-      "pitch": "Libro BookOps de especificacion visual y UX de Ontahi que tambien fuerza al propio BookOps a permitir experiencias de lectura customizadas.",
+      "pitch": "Libro BookOps de especificación visual y UX de Ontahí que también fuerza al propio BookOps a permitir experiencias de lectura customizadas.",
       "media": [
         "ai-build-log-lab/media/screenshots/ontahi-book-of-styles.gif",
         "ai-build-log-lab/media/screenshots/ontahi-book-of-style-light.png",
@@ -343,7 +343,7 @@
       ],
       "trackedFiles": 14,
       "approxTextLines": 1318,
-      "pitch": "Biblioteca de documentacion y ensayos de Ontahi, publicada en BookOps. La primera pieza explora sistemas y arquitectura con vinculos organicos, biologicos, neurales, anatomicos y psicoanaliticos.",
+      "pitch": "Biblioteca de documentación y ensayos de Ontahí, publicada en BookOps. La primera pieza explora sistemas y arquitectura con vínculos orgánicos, biológicos, neurales, anatómicos y psicoanalíticos.",
       "media": [
         "ai-build-log-lab/media/screenshots/ontahi-system-architecture.gif",
         "ai-build-log-lab/media/screenshots/ontahi-library-system-architecture-light.png",
@@ -360,15 +360,15 @@
     },
     {
       "id": "ontahi",
-      "title": "Ontahi",
+      "title": "Ontahí",
       "kind": "framework",
       "localPath": "/Users/jfernandes/dev/personal/bookops/bookops/ontahi-*",
       "repo": "git@github.com:javifernandes/bookops.git",
       "firstObservedCommit": "2026-06-29 5c61674f Docs/ontahi language kit (#215)",
       "packageExtractionCommits": [
         "2026-07-09 3862f006 Extract architecture package as ontahi-core (#378)",
-        "2026-07-09 339ac414 Extract Ontahi Supabase package (#380)",
-        "2026-07-09 a442d852 Extract Ontahi Next.js runtime package (#381)",
+        "2026-07-09 339ac414 Extract Ontahí Supabase package (#380)",
+        "2026-07-09 a442d852 Extract Ontahí Next.js runtime package (#381)",
         "2026-07-10 831e84b8 feat: extract ontahi react runtime (#382)"
       ],
       "workspacePackages": [
@@ -377,15 +377,15 @@
         "@ontahi/runtime-nextjs",
         "@ontahi/react"
       ],
-      "pitch": "Framework surgido de la necesidad de mejorar la arquitectura de BookOps y de anos de experiencia practica desarrollando, investigando y ensenando sistemas. Modela entidades, operaciones, runtimes, datos, refs, cache, ejecucion reflexiva y operaciones durables; es el core sobre el cual podrian reconstruirse los demas sistemas.",
+      "pitch": "Framework surgido de la necesidad de mejorar la arquitectura de BookOps y de años de experiencia práctica desarrollando, investigando y enseñando sistemas. Modela entidades, operaciones, runtimes, datos, refs, cache, ejecución reflexiva y operaciones durables; es el core sobre el cual podrían reconstruirse los demás sistemas.",
       "media": [
         "ai-build-log-lab/media/screenshots/ontahi-graph-entity-browser-light.png",
         "ai-build-log-lab/media/screenshots/ontahi-graph-entity-browser-dark.png"
       ],
       "mediaNeeded": [
         "operation console",
-        "ejecucion de operaciones",
-        "schema metadata controls en accion"
+        "ejecución de operaciones",
+        "schema metadata controls en acción"
       ]
     },
     {
@@ -397,7 +397,7 @@
       "firstObservedCommit": "2026-07-10 0a43ef12 Add semantic workstream Atlas (#383)",
       "currentBranchLatest": "2026-07-11 b1902fd7 Shape atlas semantic source pilot",
       "atlasItems": 75,
-      "pitch": "Mapa semantico markdown-first que nace de meta-analizar, explorar y formalizar la forma de desarrollo de BookOps y Ontahi. Parte de practicas tipo spec-driven development, pero busca un marco mas vivo que los issue trackers, skills o CLIs actuales para organizar planes, evidencia y decisiones.",
+      "pitch": "Mapa semántico markdown-first que nace de meta-analizar, explorar y formalizar la forma de desarrollo de BookOps y Ontahí. Parte de prácticas tipo spec-driven development, pero busca un marco más vivo que los issue trackers, skills o CLIs actuales para organizar planes, evidencia y decisiones.",
       "media": [
         "ai-build-log-lab/media/screenshots/workstream-atlas-light.png",
         "ai-build-log-lab/media/screenshots/workstream-atlas-dark.png",
