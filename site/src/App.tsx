@@ -451,6 +451,8 @@ function App() {
   const selectedShot = selectedScreenshots[activeShotIndex] ?? selectedScreenshots[0];
   const selectedShotSrc = selectedShot ? publicAssetPath(selectedShot.path) : null;
   const isSelectedShotLoaded = selectedShotSrc !== null && loadedShotPath === selectedShotSrc;
+  const shouldShowInlineMediaArrows = selectedScreenshots.length > 2;
+  const shouldShowShotRailArrows = selectedScreenshots.length > 4;
 
   useEffect(() => {
     setActiveShotIndex(0);
@@ -868,7 +870,7 @@ function App() {
 
         <section className="evidence-stage" aria-label={copy.visualEvidence}>
           <div className="media-composition">
-            {selectedScreenshots.length > 1 ? (
+            {shouldShowInlineMediaArrows ? (
               <button
                 className="media-arrow previous"
                 type="button"
@@ -915,7 +917,7 @@ function App() {
               </figcaption>
             </figure>
 
-            {selectedScreenshots.length > 1 ? (
+            {shouldShowInlineMediaArrows ? (
               <button
                 className="media-arrow next"
                 type="button"
@@ -927,15 +929,20 @@ function App() {
             ) : null}
 
             {selectedScreenshots.length > 1 ? (
-              <div className="shot-carousel" aria-label={copy.visualEvidence}>
-                <button
-                  className="shot-carousel-button previous"
-                  type="button"
-                  onClick={showPreviousShot}
-                  aria-label={copy.previousShot}
-                >
-                  <ChevronLeftIcon />
-                </button>
+              <div
+                className={shouldShowShotRailArrows ? "shot-carousel" : "shot-carousel compact"}
+                aria-label={copy.visualEvidence}
+              >
+                {shouldShowShotRailArrows ? (
+                  <button
+                    className="shot-carousel-button previous"
+                    type="button"
+                    onClick={showPreviousShot}
+                    aria-label={copy.previousShot}
+                  >
+                    <ChevronLeftIcon />
+                  </button>
+                ) : null}
                 <div className="shot-rail" ref={shotRailRef}>
                   {selectedScreenshots.map((shot, index) => (
                     <button
@@ -950,14 +957,16 @@ function App() {
                     </button>
                   ))}
                 </div>
-                <button
-                  className="shot-carousel-button next"
-                  type="button"
-                  onClick={showNextShot}
-                  aria-label={copy.nextShot}
-                >
-                  <ChevronRightIcon />
-                </button>
+                {shouldShowShotRailArrows ? (
+                  <button
+                    className="shot-carousel-button next"
+                    type="button"
+                    onClick={showNextShot}
+                    aria-label={copy.nextShot}
+                  >
+                    <ChevronRightIcon />
+                  </button>
+                ) : null}
               </div>
             ) : null}
           </div>
