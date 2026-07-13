@@ -7,6 +7,11 @@ export type Project = {
   localPath?: string;
   repo?: string;
   publicUrl?: string;
+  resources?: Array<{
+    label: string;
+    href: string;
+    kind?: "pdf" | "external";
+  }>;
   source?: string;
   firstCommit?: string;
   latestCommit?: string;

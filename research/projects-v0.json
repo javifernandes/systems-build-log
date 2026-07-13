@@ -15,6 +15,13 @@
       "localPath": "/Users/jfernandes/dev/personal/bookops/progbook",
       "repo": "git@github.com:javifernandes/progbook.git",
       "publicUrl": "https://bookops.net/progbook",
+      "resources": [
+        {
+          "label": "Original PDF",
+          "href": "https://github.com/javifernandes/progbook/blob/main/main.pdf",
+          "kind": "pdf"
+        }
+      ],
       "firstCommit": "2026-01-28 3798547 Initial skeleton",
       "latestCommit": "2026-05-24 5fba602 Harden BookOps notify workflow payload",
       "commitCount": 29,
@@ -30,6 +37,7 @@
         "LaTeX"
       ],
       "media": [
+        "ai-build-log-lab/media/screenshots/progbook-latex-pdf-chess-move-light.png",
         "ai-build-log-lab/media/screenshots/progbook-mechanics-of-thoughts-light.png",
         "ai-build-log-lab/media/screenshots/progbook-mechanics-of-thoughts-dark.png",
         "ai-build-log-lab/media/screenshots/progbook-slide-mode-light.png",

@@ -290,6 +290,15 @@
       "notes": "Light-mode Ontahi style specification rendered with its own botanical visual system."
     },
     {
+      "id": "progbook-latex-pdf-chess-move-light",
+      "path": "ai-build-log-lab/media/screenshots/progbook-latex-pdf-chess-move-light.png",
+      "projectId": "progbook",
+      "title": "The Mechanics of Thoughts original PDF - light",
+      "mode": "light",
+      "kind": "pdf-source",
+      "notes": "Original LaTeX/PDF rendering of the same chess-move section, showing the source book preserved and expanded in BookOps."
+    },
+    {
       "id": "progbook-mechanics-of-thoughts-light",
       "path": "ai-build-log-lab/media/screenshots/progbook-mechanics-of-thoughts-light.png",
       "projectId": "progbook",

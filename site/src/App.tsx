@@ -732,6 +732,19 @@ function App() {
                 <span className="tooltip">{copy.openSite}</span>
               </a>
             ) : null}
+            {selectedProject.resources?.map((resource) => (
+              <a
+                className="icon-link"
+                href={resource.href}
+                key={resource.href}
+                target="_blank"
+                rel="noreferrer"
+                aria-label={resource.label}
+              >
+                {resource.kind === "pdf" ? <PdfIcon /> : <ExternalLinkIcon />}
+                <span className="tooltip">{resource.label}</span>
+              </a>
+            ))}
             {selectedRepo ? (
               <a
                 className="icon-link"
@@ -946,6 +959,21 @@ function ExternalLinkIcon() {
       />
       <path
         d="M6.5 4.5A2.5 2.5 0 0 0 4 7v10.5A2.5 2.5 0 0 0 6.5 20H17a2.5 2.5 0 0 0 2.5-2.5v-3a1 1 0 1 0-2 0v3a.5.5 0 0 1-.5.5H6.5a.5.5 0 0 1-.5-.5V7a.5.5 0 0 1 .5-.5h3a1 1 0 0 0 0-2h-3Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+}
+
+function PdfIcon() {
+  return (
+    <svg aria-hidden="true" viewBox="0 0 24 24">
+      <path
+        d="M7 3.5h6.2a1 1 0 0 1 .7.3l3.8 3.8a1 1 0 0 1 .3.7v12.2H7a2 2 0 0 1-2-2v-13a2 2 0 0 1 2-2Zm6 1.8V8h2.7L13 5.3ZM7 5.5v13h9v-8.7h-4.4a.6.6 0 0 1-.6-.6V5.5H7Z"
+        fill="currentColor"
+      />
+      <path
+        d="M8.2 14.2h1.5c.9 0 1.5.5 1.5 1.3s-.6 1.3-1.5 1.3h-.6v1H8.2v-3.6Zm1.4 1.9c.4 0 .7-.2.7-.6s-.3-.6-.7-.6h-.5v1.2h.5Zm2.1-1.9h1.4c1.1 0 1.8.7 1.8 1.8s-.7 1.8-1.8 1.8h-1.4v-3.6Zm1.4 2.8c.6 0 .9-.4.9-1s-.3-1-.9-1h-.5v2h.5Zm2.3-2.8h2.4v.8h-1.5v.8h1.3v.8h-1.3v1.2h-.9v-3.6Z"
         fill="currentColor"
       />
     </svg>
