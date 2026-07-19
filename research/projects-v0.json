@@ -363,7 +363,8 @@
       "title": "Ontahí",
       "kind": "framework",
       "localPath": "/Users/jfernandes/dev/personal/bookops/bookops/ontahi-*",
-      "repo": "git@github.com:javifernandes/bookops.git",
+      "repo": "git@github.com:javifernandes/ontahi.git",
+      "publicUrl": "https://ontahi.org",
       "firstObservedCommit": "2026-06-29 5c61674f Docs/ontahi language kit (#215)",
       "packageExtractionCommits": [
         "2026-07-09 3862f006 Extract architecture package as ontahi-core (#378)",
